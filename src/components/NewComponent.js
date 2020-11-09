@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductsList from './ProductsList';
-import './index.css';
+import './css/index.css';
 
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,13 +34,11 @@ import { connect } from "react-redux";
         <ProductsList />
 
         <footer className="footer">
-          <div>
-            <Card>
+          <div style={{position:'center'}}>
               <Link className="basketButton btn btn-primary" to='/checkout'>
                 <img src="http://localhost:60348/Images/Icons/basket.png" alt="Cart Icon" className="cartbasket"></img>
                 <span  className="basketspan">View Basket &nbsp; - &nbsp; {this.state.cart.length} Dishes </span>
               </Link>
-            </Card>
           </div>
         </footer>
       </div>

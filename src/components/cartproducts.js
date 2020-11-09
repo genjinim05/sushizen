@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css'
+import './css/checkout.css'
 
 import { connect } from 'react-redux';
 import { Button, Card } from 'react-bootstrap';
@@ -113,9 +113,9 @@ class CartProducts extends React.Component{
         return (
             <div>
                 {items.map(item => 
-                <div >
+                <div key={item.id}>
                        
-                <Card>
+                <Card >
                 <Card.Body>
                     <div className="container-row">
                         <div className="cartImageContainer">

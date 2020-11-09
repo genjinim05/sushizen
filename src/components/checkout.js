@@ -1,6 +1,6 @@
 import React from 'react';
 import CartProducts from './cartproducts';
-import './index.css';
+import './css/checkout.css';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -67,7 +67,7 @@ class Checkout extends React.Component{
                 {
                     this.state.cart.length > 0 &&
 
-                    <div className="billing"> 
+                    <div className="billing">
                         <Card>
                             <Card.Body>
                                 <div className="billDiv">
@@ -90,10 +90,16 @@ class Checkout extends React.Component{
                                     <span className="totalCount">RM {this.props.total} </span>
                                 </div>
 
+                                <footer className="checkoutFooter">
+                                    <div> 
+                                        <Button className="checkoutBut" onClick={this.addToCart} >  
+                                            <span className="checkoutPrice">Checkout </span>
+                                        </Button> 
+                                    </div>
+                                    </footer>
                             </Card.Body>
                         </Card>
                     </div>
-
                 }
 
             </div>

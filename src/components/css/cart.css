@@ -19,7 +19,7 @@
     font-weight: bold;
 }
 
-.quantityButton {
+.quantityButton, .quantityButton:hover, .quantityButton:active {
     border: 1px outset #52a5ff;
     background-color: #52a5ff;
     color: white;
@@ -30,7 +30,7 @@
     cursor:pointer;
 }
 
-.addCartBut {
+.addCartBut, .addCartBut:hover, .addCartBut:active {
     width: 90%;
     height: 50px;
     margin-left: 20px;

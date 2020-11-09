@@ -1,10 +1,12 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Card } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchProducts } from '../actions/SimpleActions';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
+
+import './css/index.css'
 
 class ProductsList extends React.Component {
     constructor(props) {
@@ -39,138 +41,198 @@ class ProductsList extends React.Component {
         let handroll = products.filter(datas => datas.prod_type === 'Handroll')
 
         return (
-        <div>
-            <div className="wrapper">
-            {/* Sushi Section */}
-            <h3>Sushi </h3>
-                {sushi.map(item =>
-                    <Card key={item.prod_id}>
-                    <Card.Img src={item.prod_image} alt={item.prod_name} style={{ width:'100%', height:'220px'}} />
+        
+        <div className="row no-gutters justify-content-center">
+            <div className="col-sm-9 p-3">
+                <div>
+                    {/* Sushi Section */}
+                    <h3>Sushi </h3>
+                    {sushi.map(item =>
+                        <Card key={item.prod_id} style={{width: '100%'}}>                        
+                        <Card.Body>
+                            <div className="container-row">
+
+                                <div className="homeImageContainer">
+                                    <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
+
+                                </div> 
+
+                                <div className="homeItemContainer">
+                                    <div>
+                                        <h4 className="homeItemTitle">{item.prod_name}</h4>
+
+                                        <p className="homeItemDesc" >{item.prod_description}</p>
+
+                                        <span className="homeItemPrice">{item.prod_price}.00</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                                state: {productID: item.prod_id, price: item.prod_price, 
+                                    image: item.prod_image, name: item.prod_name} }} 
+                                    className="addbut btn btn-primary" >
+
+                                <span className="addspan"  >+</span>
+                            </Link>
+
+                        </Card.Body>
+                        </Card>
+                    )}
+                </div>
+
+                <div>
+                {/* Roll Section */}
+                <h3>Maki/Roll </h3>
+                    {roll.map(item =>
+                        <Card key={item.prod_id} style={{width: '100%'}}>                        
+                        <Card.Body>
+                            <div className="container-row">
+
+                                <div className="homeImageContainer">
+                                    <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
+
+                                </div> 
+
+                                <div className="homeItemContainer">
+                                    <div>
+                                        <h4 className="homeItemTitle">{item.prod_name}</h4>
+
+                                        <p className="homeItemDesc" >{item.prod_description}</p>
+
+                                        <span className="homeItemPrice">{item.prod_price}.00</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                                state: {productID: item.prod_id, price: item.prod_price, 
+                                    image: item.prod_image, name: item.prod_name} }} 
+                                    className="addbut btn btn-primary" >
+
+                                <span className="addspan"  >+</span>
+                            </Link>
+
+                        </Card.Body>
+                        </Card>
+                    )}
+                </div>
+
+                <div>
+                {/* handroll Section */}
+                <h3>Temaki/Handroll </h3>
+                    {handroll.map(item =>
+                        <Card key={item.prod_id} style={{width: '100%'}}>                        
+                        <Card.Body>
+                            <div className="container-row">
+
+                                <div className="homeImageContainer">
+                                    <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
+
+                                </div> 
+
+                                <div className="homeItemContainer">
+                                    <div>
+                                        <h4 className="homeItemTitle">{item.prod_name}</h4>
+
+                                        <p className="homeItemDesc" >{item.prod_description}</p>
+
+                                        <span className="homeItemPrice">{item.prod_price}.00</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                                state: {productID: item.prod_id, price: item.prod_price, 
+                                    image: item.prod_image, name: item.prod_name} }} 
+                                    className="addbut btn btn-primary" >
+
+                                <span className="addspan"  >+</span>
+                            </Link>
+
+                        </Card.Body>
+                        </Card>
+                    )}
+                </div>
+
+                <div>
+                {/* Noodles Section */}
+                <h3>Ramen/Noodles </h3>
+                    {noodles.map(item =>
+                        <Card key={item.prod_id} style={{width: '100%'}}>                        
+                        <Card.Body>
+                            <div className="container-row">
+
+                                <div className="homeImageContainer">
+                                    <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
+
+                                </div> 
+
+                                <div className="homeItemContainer">
+                                    <div>
+                                        <h4 className="homeItemTitle">{item.prod_name}</h4>
+
+                                        <p className="homeItemDesc" >{item.prod_description}</p>
+
+                                        <span className="homeItemPrice">{item.prod_price}.00</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                                state: {productID: item.prod_id, price: item.prod_price, 
+                                    image: item.prod_image, name: item.prod_name} }} 
+                                    className="addbut btn btn-primary" >
+
+                                <span className="addspan"  >+</span>
+                            </Link>
+
+                        </Card.Body>
+                        </Card>
+                    )}
+                </div>
+
+                <div style={{ marginBottom: '55px'}}>
+                {/* Rice Section */}
+                <h3>Don/Rice </h3>
+                    {rice.map(item =>
+                    <Card key={item.prod_id} style={{width: '100%'}}>                        
                     <Card.Body>
-                    <Card.Title>
-                        <h4 style={{ display: 'inline' }}>{item.prod_name}</h4>
+                        <div className="container-row">
 
-                    </Card.Title>
-                        <p className="cartdesc" >{item.prod_description}</p>
+                            <div className="homeImageContainer">
+                                <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
 
-                        <h4 style={{ display: 'inline'}}>RM {item.prod_price}.00</h4>
+                            </div> 
+
+                            <div className="homeItemContainer">
+                                <div>
+                                    <h4 className="homeItemTitle">{item.prod_name}</h4>
+
+                                    <p className="homeItemDesc" >{item.prod_description}</p>
+
+                                    <span className="homeItemPrice">{item.prod_price}.00</span>
+
+                                </div>
+                            </div>
+                        </div>
 
                         <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
                             state: {productID: item.prod_id, price: item.prod_price, 
                                 image: item.prod_image, name: item.prod_name} }} 
                                 className="addbut btn btn-primary" >
-                        <span className="addspan"  >+</span>
+
+                            <span className="addspan"  >+</span>
                         </Link>
 
                     </Card.Body>
                     </Card>
-                )}
-            </div>
-
-            <div>
-            {/* Roll Section */}
-            <h3>Maki/Roll </h3>
-                {roll.map(item =>
-                <Card key={item.prod_id} >
-                <Card.Img src={item.prod_image} alt={item.prod_name} style={{ width:'100%', height:'220px'}} />
-                <Card.Body>
-                <Card.Title>
-                    <h4 style={{ display: 'inline' }}>{item.prod_name}</h4>
-
-                </Card.Title>
-                    <p className="cartdesc" >{item.prod_description}</p>
-
-                    <h4 style={{ display: 'inline'}}>RM {item.prod_price}.00</h4>
-    
-                    <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                        state: {productID: item.prod_id, price: item.prod_price,
-                            image: item.prod_image, name: item.prod_name} }} 
-                            className="addbut btn btn-primary" >
-                        <span className="addspan" >+</span>
-                    </Link>
-                </Card.Body>
-                </Card>
-                )}
-            </div>
-
-            <div>
-            {/* handroll Section */}
-            <h3>Temaki/Handroll </h3>
-                {handroll.map(item =>
-                <Card key={item.prod_id} >
-                <Card.Img src={item.prod_image} alt={item.prod_name} style={{ width:'100%', height:'220px'}} />
-                <Card.Body>
-                <Card.Title>
-                    <h4 style={{ display: 'inline' }}>{item.prod_name}</h4>
-
-                </Card.Title>
-                    <p className="cartdesc" >{item.prod_description}</p>
-
-                    <h4 style={{ display: 'inline'}}>RM {item.prod_price}.00</h4>
-
-                    <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                        state: {productID: item.prod_id, price: item.prod_price,
-                            image: item.prod_image, name: item.prod_name} }} 
-                            className="addbut btn btn-primary" >
-                        <span className="addspan" >+</span>
-                    </Link>
-
-                </Card.Body>
-                </Card>
-                )}
-            </div>
-
-            <div>
-            {/* Noodles Section */}
-            <h3>Ramen/Noodles </h3>
-                {noodles.map(item =>
-                <Card key={item.prod_id} >
-                <Card.Img src={item.prod_image} alt={item.prod_name} style={{ width:'100%', height:'220px'}} />
-                <Card.Body>
-                <Card.Title>
-                    <h4 style={{ display: 'inline' }}>{item.prod_name}</h4>
-
-                </Card.Title>
-                    <p className="cartdesc" >{item.prod_description}</p>
-
-                    <h4 style={{ display: 'inline'}}>RM {item.prod_price}.00</h4>
-                    
-                    <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                        state: {productID: item.prod_id, price: item.prod_price, 
-                            image: item.prod_image, name: item.prod_name} }} 
-                            className="addbut btn btn-primary" >
-                        <span className="addspan" >+</span>
-                    </Link>
-
-                </Card.Body>
-                </Card>
-                )}
-            </div>
-
-            <div style={{ marginBottom: '55px'}}>
-            {/* Rice Section */}
-            <h3>Don/Rice </h3>
-                {rice.map(item =>
-                <Card key={item.prod_id} >
-                <Card.Img src={item.prod_image} alt={item.prod_name} style={{ width:'100%', height:'220px'}} />
-                <Card.Body>
-                <Card.Title>
-                    <h4 style={{ display: 'inline' }}>{item.prod_name}</h4>
-
-                </Card.Title>
-                    <p className="cartdesc" >{item.prod_description}</p>
-
-                    <h4 style={{ display: 'inline'}}>RM {item.prod_price}.00</h4>
-                    
-                    <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                        state: {productID: item.prod_id, price: item.prod_price, 
-                            image: item.prod_image, name: item.prod_name} }} 
-                            className="addbut btn btn-primary" >
-                        <span className="addspan" >+</span>
-                    </Link>
-                </Card.Body>
-                </Card>
-                )}
+                    )}
+                </div>
             </div>
         </div>   
     )} 

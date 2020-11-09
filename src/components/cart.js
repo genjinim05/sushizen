@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './cart.css';
+import './css/cart.css';
 
 import { Card, Button, ButtonGroup } from 'react-bootstrap';
 import { fetchProducts, addToCart, increaseProduct  } from '../actions/SimpleActions';
