@@ -1,0 +1,39 @@
+{
+    "Items": [
+        {"id": 1, "name": "Kellogg's Corn Flakes Breakfast Cereal 500g", "parentID": "1"},
+        {"id": 2, "name": "Nestlé School Pack Cereal 6s x 140g", "parentID": "1"},
+        {"id": 3, "name": "Nestlé Nestum Oat Grains & More 3 in 1 15 x 30g", "parentID": "1"},
+        {"id": 4, "name": "Kuala Lumpur", "parentID": "1"},
+        {"id": 5, "name": "Labuan", "parentID": "1"},
+        {"id": 6, "name": "Melaka", "parentID": "1"},
+        {"id": 7, "name": "Negeri Sembilan", "parentID": "1"},
+        {"id": 8, "name": "Pahang", "parentID": "1"},
+        {"id": 9, "name": "Penang", "parentID": "1"},
+        {"id": 10, "name": "Perak", "parentID": "1"},
+        {"id": 11, "name": "Perlis", "parentID": "1"},
+        {"id": 12, "name": "Putrajaya", "parentID": "1"},
+        {"id": 13, "name": "Sabah", "parentID": "1"},
+        {"id": 14, "name": "Sarawak", "parentID": "1"},
+        {"id": 15, "name": "Selangor", "parentID": "1"},
+        {"id": 16, "name": "Terengganu", "parentID": "1"}
+   ],
+    "Unit Price": [
+        {"id": 17, "price": "Busan", "parentID": "2"},
+        {"id": 18, "name": "Daegu", "parentID": "2"},
+        {"id": 19, "name": "Daejeon", "parentID": "2"},
+        {"id": 20, "name": "Gangwon Province", "parentID": "2"},
+        {"id": 21, "name": "Gwangju", "parentID": "2"},
+        {"id": 22, "name": "Gyeonggi Province", "parentID": "2"},
+        {"id": 23, "name": "Incheon", "parentID": "2"},
+        {"id": 24, "name": "Jeju", "parentID": "2"},
+        {"id": 25, "name": "North Chungcheong Province", "parentID": "2"},
+        {"id": 26, "name": "North Gyeongsang Province", "parentID": "2"},
+        {"id": 27, "name": "North Jeolla Province", "parentID": "2"},
+        {"id": 28, "name": "Sejong City", "parentID": "2"},
+        {"id": 29, "name": "Seoul", "parentID": "2"},
+        {"id": 30, "name": "South Chungcheong Province", "parentID": "2"},
+        {"id": 31, "name": "South Gyeongsang Province", "parentID": "2"},
+        {"id": 32, "name": "South Jeolla Province", "parentID": "2"},
+        {"id": 33, "name": "Ulsan", "parentID": "2"}
+    ]
+ }

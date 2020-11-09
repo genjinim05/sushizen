@@ -1,0 +1,116 @@
+.removebut {
+    background-color: #ee6352;
+    color: white;
+    width: 90%;
+    height: 50px;
+    margin-left: 20px;
+    border: 1px outset #ee6352;
+    font-weight: bold;
+}
+
+.canceltag {
+    font-size: 20px;
+}
+
+.cartQuan {
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.quantityButton {
+    border: 1px outset #52a5ff;
+    background-color: #52a5ff;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    height:40px;
+    width:40px;
+    cursor:pointer;
+}
+
+.addCartBut {
+    width: 90%;
+    height: 50px;
+    margin-left: 20px;
+    color: white;
+    background-color: #52a5ff;
+    border: 1px outset #52a5ff;
+    font-weight: bold;
+}
+
+.addCartPrice {
+    font-size: 20px;
+}
+
+.cartimg {
+    width: 100%;
+    height: 200px;
+    display: inline;
+    float: right;
+}
+
+.cartexit {
+    display: inline;
+    height: 40px;    
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.cartprice {
+    display: inline; 
+    float: right;
+}
+
+.cartdesc {
+    color: 'grey'; 
+    font-size: '20px';
+}
+
+.modeText {
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+.modeRadio {
+    width: 30px;
+    height: 16px;
+}
+
+.optional {
+    display: inline;
+    color:grey;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.instructions{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.instructions:focus {
+    outline: none;
+    border: 1px solid #52a5ff;
+    box-shadow: 0 0 10px #52a5ff;
+}
+
+.inner {
+    display: table;
+    margin: 0 auto;
+}
