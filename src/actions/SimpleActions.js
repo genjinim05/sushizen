@@ -2,7 +2,7 @@
 export function fetchProducts() {
     return dispatch => {
         dispatch(fetchProductsBegin());
-        return fetch('http://localhost:60348/api/products/')
+        return fetch('https://sushi-zen.azurewebsites.net/api/items')
             .then(handleErrors)
             .then(res => res.json())
             .then(results => {
@@ -12,6 +12,7 @@ export function fetchProducts() {
             .catch(error => dispatch(fetchProductsFailure(error)));
     };
 }
+// http://localhost:60348/api/products/
 
 function handleErrors(response) {
     if (!response.ok) {

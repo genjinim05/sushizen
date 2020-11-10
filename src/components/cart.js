@@ -136,7 +136,7 @@ class Contact extends Component {
             <div className="wrapper" key={item.prod_id}>
                 <header>
                     <Link to='/'>
-                        <img src="http://localhost:60348/Images/Icons/x-circle.png" alt="exit" className="cartexit"></img>
+                        <img src="https://sushi-zen.azurewebsites.net/Images/Icons/x-circle.png" alt="exit" className="cartexit"></img>
                     </Link>
 
                     <img src={item.prod_image} alt={item.prod_name} className="cartimg"/>

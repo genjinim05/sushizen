@@ -36,7 +36,7 @@ import { connect } from "react-redux";
         <footer className="footer">
           <div style={{position:'center'}}>
               <Link className="basketButton btn btn-primary" to='/checkout'>
-                <img src="http://localhost:60348/Images/Icons/basket.png" alt="Cart Icon" className="cartbasket"></img>
+                <img src="https://sushi-zen.azurewebsites.net/Images/Icons/basket.png" alt="Cart Icon" className="cartbasket"></img>
                 <span  className="basketspan">View Basket &nbsp; - &nbsp; {this.state.cart.length} Dishes </span>
               </Link>
           </div>

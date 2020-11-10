@@ -41,7 +41,7 @@ class Checkout extends React.Component{
                         <Card>
                             <Card.Body className="checkoutHeaderInnerDiv">
                             <Link to='/'>
-                            <img src="http://localhost:60348/Images/Icons/x-circle.png" alt="exit   " className="cartexit"></img>
+                            <img src="https://sushi-zen.azurewebsites.net/Images/Icons/x-circle.png" alt="exit" className="cartexit"></img>
                         </Link>
 
                         <Button className="clearAllButton" onClick={this.clear}>Clear All</Button>
