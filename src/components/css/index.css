@@ -84,8 +84,8 @@
 }
 
 .homeImageContainer {
-    width: 150px;
-    height: 100px;
+    width: 80px;
+    height: 60px;
     min-width: 80px;
     overflow: hidden;
 }
@@ -117,7 +117,39 @@
 
 .homeItemDesc {
     color: #8d90a1;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 5px;
     margin-left: 10px;
+}
+
+.tableSelect {
+    text-align: center;
+}
+
+.tableChoice {
+    font-size: 20px;
+}
+
+.selectTableButton {
+    width: 90px;
+    height: 80px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: white;
+    border: #52a5ff 2px solid;
+    color: #52a5ff;
+    border-radius: 3px;
+    transition:  #52a5ff !important;
+}
+
+.selectTableButton:focus, .selectTableButton:active, .selectTableButton:hover, .selectTableButton::selection {
+    width: 90px;
+    height: 80px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: #52a5ff;
+    border: #52a5ff 2px solid;
+    color: black;
+    border-radius: 3px;
+    transition: #52a5ff .15s ease-in-out,box-shadow .15s ease-in-out !important;
 }

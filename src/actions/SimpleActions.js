@@ -84,3 +84,18 @@ export const sumItems = cartItems => {
     let total = (subtotal + servicetax)
     return {itemCount, subtotal, servicetax, total}
 }
+
+export const SET_SELECTED_TABLE = 'SET_SELECTED_TABLE'
+
+export const setSelectedTable = data => ({
+    type: SET_SELECTED_TABLE,
+    payload: { data }
+});
+
+const tableNumber = (tableDetails) => {
+    localStorage.setItem('table', JSON.stringify(tableDetails.length > 0 ? tableDetails: []));
+}
+
+export const sumNumber = tableDetails => {
+    tableNumber(tableDetails);
+}

@@ -7,10 +7,14 @@ import {
     DECREASE_PRODUCT,
     REMOVE_PRODUCT,
     CLEAR,
-    sumItems
+    sumItems,
+    SET_SELECTED_TABLE,
+    sumNumber
 } from '../actions/SimpleActions';
 
 const storage = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+
+const tableNumber = localStorage.getItem('table') ? JSON.parse(localStorage.getItem('table')) : []
 
 const initialState = {
     error: null,
@@ -18,6 +22,8 @@ const initialState = {
     items: [],
     cartItems: storage,
     ...sumItems(storage),
+    tableDetails: tableNumber,
+    ...sumNumber(tableNumber)
 
 }
 
@@ -118,6 +124,16 @@ const selectData = (state = initialState, action) => {
             return {
                 cartItems: [],
                 ...sumItems([])
+            }
+        case SET_SELECTED_TABLE:
+            state.tableDetails.push({
+                ...action.payload.data
+                })
+            console.log(action.payload.data)
+            return {
+                ...state,
+                ...sumNumber(state.tableDetails),
+                tableDetails: [...state.tableDetails]
             }
         default:
             return state;

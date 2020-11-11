@@ -121,13 +121,13 @@ class CartProducts extends React.Component{
                         <div className="cartImageContainer">
                             <img alt={item.name} src={item.image} className="checkoutimg"/>
 
-                        </div>
+                        </div>  
 
                         <div className="cartItemsContainer">
                             <div>
                                 <h4 className="cartItemTitle">{item.name}</h4>
 
-                                <span className="cartItemPrice">{item.unitprice}.00</span>
+                                <p className="cartItemPrice">{item.unitprice}.00</p>
 
                                 <p className="cartItemComments">
                                     {item.instructions}

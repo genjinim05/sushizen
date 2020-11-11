@@ -81,7 +81,7 @@ class Contact extends Component {
         };  
         this.props.addToCart(values);
         history.push({
-            pathname: '/',
+            pathname: '/products',
         });
         console.log(inputValue)
     }
@@ -123,7 +123,7 @@ class Contact extends Component {
     let removebut =   
                     <footer className="footer">
                     <div> 
-                        <Link to='/' className="removebut btn btn-primary">
+                        <Link to='/products' className="removebut btn btn-primary">
                             <span className="canceltag">Cancel</span>
                         </Link>
                     </div>
@@ -135,7 +135,7 @@ class Contact extends Component {
             {selected.map(item =>
             <div className="wrapper" key={item.prod_id}>
                 <header>
-                    <Link to='/'>
+                    <Link to='/products'>
                         <img src="https://sushi-zen.azurewebsites.net/Images/Icons/x-circle.png" alt="exit" className="cartexit"></img>
                     </Link>
 

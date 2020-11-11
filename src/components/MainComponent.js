@@ -2,6 +2,7 @@ import React from 'react';
 import App from './NewComponent';
 import Cart from './cart';
 import Checkout from './checkout';
+import Tables from './tables';
 
 import { connect } from 'react-redux';
 import {  Switch, Route } from 'react-router-dom';
@@ -18,8 +19,10 @@ class ListofProducts extends React.Component {
         return (
             <div>
                 <Switch>
-                    <Route exact path="/" component={App}>
-                        <App />
+                    <Route exact path="/" >
+                        <Tables />
+                    </Route>
+                    <Route path="/products" render={(props) => <App {...props} /> }>
                     </Route>
                     <Route path="/cart" render={(props) => <Cart {...props} />} >
                     </Route>

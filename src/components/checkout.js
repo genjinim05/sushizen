@@ -40,7 +40,7 @@ class Checkout extends React.Component{
                 <header className="sticky-top">
                         <Card>
                             <Card.Body className="checkoutHeaderInnerDiv">
-                            <Link to='/'>
+                            <Link to='/products'>
                             <img src="https://sushi-zen.azurewebsites.net/Images/Icons/x-circle.png" alt="exit" className="cartexit"></img>
                         </Link>
 

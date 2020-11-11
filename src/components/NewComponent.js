@@ -12,22 +12,25 @@ import { connect } from "react-redux";
     super(props);  
       this.state = {
       data: [],
-      cart: this.props.cartItems
+      cart: this.props.cartItems,
+      table: this.props.tableDetails
     }
   }
 
   componentDidMount() {
     console.log(this.state.cart)
+    console.log(this.state.table)
   }
 
     render() {
+      let tableNumber = this.state.table.find(item => item.number)
       return (
       <div>
         <header>
           <div className="headerdiv">
               <img src="" alt="Logo"></img>
               <p className="restaurantName">Sushi Zen</p>
-              <span className="tablenumber" >Table number </span>
+              <span className="tablenumber" >Table number: {tableNumber.number} </span>
           </div>
         </header>
         
@@ -49,17 +52,11 @@ import { connect } from "react-redux";
 
 
 const mapStateToProps = state => {
-  const quantity = state.productsReducer.quantity;
-  const subtot = state.productsReducer.subtot;
-  const unitPrice = state.productsReducer.unitPrice;
-  const productID = state.productsReducer.productID;
   const cartItems = state.productsReducer.cartItems;
+  const tableDetails = state.productsReducer.tableDetails;
   return {
-      quantity,
-      subtot,
-      unitPrice,
-      productID,
       cartItems,
+      tableDetails,
   }
 };  
 

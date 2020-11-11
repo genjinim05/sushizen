@@ -21,7 +21,7 @@ class ProductsList extends React.Component {
 
     componentDidMount() {
         this.props.fetchProducts();
-        // localStorage.clear();
+        // localStorage.clear('table');
     }
 
     render() {
