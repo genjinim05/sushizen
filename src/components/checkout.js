@@ -5,8 +5,9 @@ import './css/checkout.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
+import history from './history';
 
-import { fetchProducts, clearCart } from '../actions/SimpleActions';
+import { fetchProducts, clearCart, postProducts } from '../actions/SimpleActions';
 
 class Checkout extends React.Component{
     constructor(props) {
@@ -15,7 +16,10 @@ class Checkout extends React.Component{
           data: [],
           cart: this.props.cartItems,
           servicetax: 0,
-          total: 0
+          total: 0,
+          time: new Date().toLocaleString(),
+          table: this.props.tableDetails,
+          response: false
         }
     }
 
@@ -27,11 +31,63 @@ class Checkout extends React.Component{
             servicetax: servicetax,
             total: total
         })
+        console.log(this.props.total)
+        console.log(this.state.time)
+
     }
 
     clear = () => {
         this.props.clearCart();
         window.location.reload();
+    }
+
+    checkoutProducts = () => {
+        let items = this.state.cart.find(item => item.id)
+        let quantity = this.state.cart.find(item => item.quantity)
+        let tableNumber = this.state.table.find(item => item.number)
+
+        let checkout = {}     
+        checkout.tableNumber = tableNumber.number;
+        checkout.prodID = items.id;
+        checkout.quantity = quantity.quantity;
+        checkout.instructions = items.instructions;
+        checkout.total = this.props.total;
+        checkout.timePlaced = this.state.time;
+
+        console.log(checkout)
+
+        // let test = this.state.cart.filter(item => item.quantity != null)
+        // console.log(test)
+        // console.log(test.map(item => item.quantity))
+
+        // var p = {
+        //     "checkout.tableNumber": tableNumber.number,
+        //     "checkout.prodID": items.id,
+        //     "checkout.quantity": test.map(item => item.quantity)
+        // };
+        
+        // for (var key in p) {
+        //     if (p.hasOwnProperty(key)) {
+        //         console.log(key + " -> " + p[key]);
+        //     }
+        // }
+
+        // for (var i = 0; i < test.length; i++) {
+        //     let prodID = this.state.cart.filter(item => item.id)
+        //     console.log(prodID)
+        //     let checkout = {}     
+        //     checkout.id = prodID.map(item => item.id)
+        //     console.log(checkout.id.toString())
+        //   }
+
+        this.props.postProducts(checkout);
+
+        this.setState({
+            reponse: true
+        })
+        history.push({
+            pathname: '/products',
+        });
     }
 
     render(){
@@ -90,9 +146,11 @@ class Checkout extends React.Component{
                                     <span className="totalCount">RM {this.props.total} </span>
                                 </div>
 
+                                {/* {this.state.response ? alert(this.props.response) : this.state.response} */}
+
                                 <footer className="checkoutFooter">
                                     <div> 
-                                        <Button className="checkoutBut" onClick={this.addToCart} >  
+                                        <Button className="checkoutBut" onClick={this.checkoutProducts} >  
                                             <span className="checkoutPrice">Checkout </span>
                                         </Button> 
                                     </div>
@@ -113,18 +171,23 @@ const mapStateToProps = state =>{
     const itemCount = state.productsReducer.itemCount;
     const servicetax = state.productsReducer.servicetax;
     const total = state.productsReducer.total;
+    const tableDetails = state.productsReducer.tableDetails;
+    const response = state.productsReducer.response;
     return{
         cartItems,
         subtotal,
         itemCount,
         servicetax,
-        total
+        total,
+        tableDetails,
+        response
     }
 }
 
 const mapDispatchToProps = {
     fetchProducts,
-    clearCart
+    clearCart,
+    postProducts
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)

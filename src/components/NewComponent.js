@@ -2,10 +2,10 @@ import React from 'react';
 import ProductsList from './ProductsList';
 import './css/index.css';
 
-import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
+import SideNav from './sideNav';
 
  class App extends React.Component {
   constructor(props) {
@@ -25,16 +25,18 @@ import { connect } from "react-redux";
     render() {
       let tableNumber = this.state.table.find(item => item.number)
       return (
-      <div>
-        <header>
-          <div className="headerdiv">
+      <div className="orderingHome">
+
+        <header className="header" >
               <img src="" alt="Logo"></img>
               <p className="restaurantName">Sushi Zen</p>
-              <span className="tablenumber" >Table number: {tableNumber.number} </span>
-          </div>
+              <span className="tablenumber" >Table: {tableNumber.number} </span>
         </header>
         
-        <ProductsList />
+        <div className="orderContainer" >
+  
+          <ProductsList />
+        </div>
 
         <footer className="footer">
           <div style={{position:'center'}}>

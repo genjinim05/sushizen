@@ -70,9 +70,11 @@ class Tables extends React.Component {
                     </tbody>
                 </Table>
 
-                <div>
-                    <Button onClick={this.deploySelectedTable}>Continue</Button>
+            <footer className="footer">
+                <div style={{position:'center'}}>
+                    <Button className="continueButton" onClick={this.deploySelectedTable}>Continue</Button>
                 </div>
+            </footer>   
 
             </div>
         </div>

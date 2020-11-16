@@ -15,7 +15,7 @@
     display: inline;
     position: relative;
     float: right;
-    margin-right: 0;
+    margin-right: 10px;
 }
 
 .restaurantName {
@@ -23,18 +23,28 @@
     display: inline;
 }
 
-.headerdiv {
+.header {
+    top: 0;
+    margin: 0;
+    position: sticky;
+    width: 100%;
     border-bottom-width: 1px; 
     border-bottom-style: solid;
     border-bottom-color: black;
-    margin-top: 0;
     line-height: 50px;
+    z-index: 50;
+}
+
+.orderingHome {
+    flex-direction: column;
+    display: flex;
+    margin: 0 auto;
 }
 
 .basketspan {
     margin-top: 5px;
     margin-right: 5px;
-    font-size: 20px;
+    font-size: 18px;
     display: inline-block;
     position: center;
 }
@@ -124,6 +134,7 @@
 
 .tableSelect {
     text-align: center;
+    margin-bottom: 100px;
 }
 
 .tableChoice {
@@ -151,5 +162,69 @@
     border: #52a5ff 2px solid;
     color: black;
     border-radius: 3px;
-    transition: #52a5ff .15s ease-in-out,box-shadow .15s ease-in-out !important;
+    transition: #52a5ff .15s ease-in-out, box-shadow .15s ease-in-out !important;
+}
+
+.continueButton {
+    height: 60px;
+    width: 90%;
+    background-color: #52a5ff;
+    border: 1px outset #52a5ff;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 10px;
+    bottom: 0;
+    position: center;
+}
+
+.sideList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sideInnerList {
+    border-bottom: 1px solid #dededf;
+}
+
+.sideNavText {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    color: #707070;
+}
+
+.typeTitle {
+    margin-left: 5px;
+}
+
+.productsDiv {
+    width: 75%;
+    top: 50px;
+    overflow: hidden;
+    height: 100%;
+    position: sticky;
+    box-sizing: content-box;
+}
+
+.sideNavDiv {
+    width: 25%;
+    position: -webkit-sticky;
+    position: sticky;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.orderContainer {
+    position: relative;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.orderContainer::-webkit-scrollbar{
+    display: none;
+    width: 0;
+    height: 0;
 }

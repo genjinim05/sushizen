@@ -33,11 +33,12 @@
 .addCartBut, .addCartBut:hover, .addCartBut:active {
     width: 90%;
     height: 50px;
-    margin-left: 20px;
+    position: center;
     color: white;
     background-color: #52a5ff;
     border: 1px outset #52a5ff;
     font-weight: bold;
+    margin-top: 15px;
 }
 
 .addCartPrice {

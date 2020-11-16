@@ -2,7 +2,7 @@ import React from 'react';
 import './css/checkout.css'
 
 import { connect } from 'react-redux';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap'; 
 import { increaseProduct, decreaseProduct, removeProduct } from '../actions/SimpleActions'
 
 class CartProducts extends React.Component{

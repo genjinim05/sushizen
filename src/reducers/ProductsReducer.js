@@ -9,7 +9,10 @@ import {
     CLEAR,
     sumItems,
     SET_SELECTED_TABLE,
-    sumNumber
+    sumNumber,
+    POSTPRODUCTS_BEGIN,
+    POSTPRODUCTS_SUCCESS,
+    POSTPRODUCTS_FAILURE
 } from '../actions/SimpleActions';
 
 const storage = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
@@ -134,6 +137,24 @@ const selectData = (state = initialState, action) => {
                 ...state,
                 ...sumNumber(state.tableDetails),
                 tableDetails: [...state.tableDetails]
+            }
+        case POSTPRODUCTS_BEGIN:
+            return {
+                ...state,
+                loading: true
+            }
+        case POSTPRODUCTS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                response: action.payload.data
+            }
+        case POSTPRODUCTS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload.error
             }
         default:
             return state;

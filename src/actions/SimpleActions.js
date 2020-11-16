@@ -99,3 +99,44 @@ const tableNumber = (tableDetails) => {
 export const sumNumber = tableDetails => {
     tableNumber(tableDetails);
 }
+
+export function postProducts(tableNumber) {
+    return dispatch => {
+        dispatch(postProductsBegin());
+        return fetch('https://sushi-zen.azurewebsites.net/api/checkouts/CHECKOUTS_T', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                tableNumber,    
+            )
+        })
+        .then(console.log(tableNumber))
+            .then(res => res.json())
+            .then(response => {
+                dispatch(postProductsSucess(response));
+                return response;
+            })
+            .catch(error => dispatch(postProductsFailure(error)));
+    }
+}
+
+export const POSTPRODUCTS_BEGIN = 'POSTPRODUCTS_BEGIN';
+export const POSTPRODUCTS_SUCCESS = 'POSTPRODUCTS_SUCCESS';
+export const POSTPRODUCTS_FAILURE = 'POSTPRODUCTS_FAILURE';
+
+export const postProductsBegin = () => ({
+    type: POSTPRODUCTS_BEGIN
+});
+
+export const postProductsSucess = data => ({
+    type: POSTPRODUCTS_SUCCESS,
+    payload: { data }
+})
+
+export const postProductsFailure = error => ({
+    type: POSTPRODUCTS_FAILURE,
+    payload: { error }
+})
+

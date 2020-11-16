@@ -1,7 +1,8 @@
 import React from 'react';
+import SideNav from './sideNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Card } from 'react-bootstrap';
+import { Card, Nav } from 'react-bootstrap';
 import { fetchProducts } from '../actions/SimpleActions';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
@@ -42,163 +43,158 @@ class ProductsList extends React.Component {
 
         return (
         
-        <div className="row no-gutters justify-content-center">
-            <div className="col-sm-9 p-3">
-                <div>
-                    {/* Sushi Section */}
-                    <h3>Sushi </h3>
-                    {sushi.map(item =>
-                        <Card key={item.prod_id} style={{width: '100%'}}>                        
-                        <Card.Body>
-                            <div className="container-row">
+        <div className="container-row">
 
-                                <div className="homeImageContainer">
-                                    <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
+            <SideNav />
+                        
+            <div className="productsDiv">
+                {/* Sushi Section */}
+                <h4 id="sushi" className="typeTitle">Sushi </h4>
+                {sushi.map(item =>
+                    <Card key={item.prod_id} >                        
+                    <Card.Body>
+                        <div className="container-row">
 
-                                </div> 
+                            <div className="homeImageContainer">
+                                <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
 
-                                <div className="homeItemContainer">
-                                    <div>
-                                        <h4 className="homeItemTitle">{item.prod_name}</h4>
+                            </div> 
 
-                                        <p className="homeItemDesc" >{item.prod_description}</p>
+                            <div className="homeItemContainer">
+                                <div>
+                                    <h5 className="homeItemTitle">{item.prod_name}</h5>
 
-                                        <span className="homeItemPrice">{item.prod_price}.00</span>
+                                    <p className="homeItemDesc" >{item.prod_description}</p>
 
-                                    </div>
+                                    <span className="homeItemPrice">{item.prod_price}.00</span>
+
                                 </div>
                             </div>
+                        </div>
 
-                            <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                                state: {productID: item.prod_id, price: item.prod_price, 
-                                    image: item.prod_image, name: item.prod_name} }} 
-                                    className="addbut btn btn-primary" >
+                        <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                            state: {productID: item.prod_id, price: item.prod_price, 
+                                image: item.prod_image, name: item.prod_name} }} 
+                                className="addbut btn btn-primary" >
 
-                                <span className="addspan"  >+</span>
-                            </Link>
+                            <span className="addspan"  >+</span>
+                        </Link>
 
-                        </Card.Body>
-                        </Card>
-                    )}
-                </div>
+                    </Card.Body>
+                    </Card>
+                )}
 
-                <div>
                 {/* Roll Section */}
-                <h3>Maki/Roll </h3>
-                    {roll.map(item =>
-                        <Card key={item.prod_id} style={{width: '100%'}}>                        
-                        <Card.Body>
-                            <div className="container-row">
+                <h3 id="roll">Maki / Roll </h3>
+                {roll.map(item =>
+                    <Card key={item.prod_id}>                        
+                    <Card.Body>
+                        <div className="container-row">
 
-                                <div className="homeImageContainer">
-                                    <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
+                            <div className="homeImageContainer">
+                                <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
 
-                                </div> 
+                            </div> 
 
-                                <div className="homeItemContainer">
-                                    <div>
-                                        <h4 className="homeItemTitle">{item.prod_name}</h4>
+                            <div className="homeItemContainer">
+                                <div>
+                                    <h4 className="homeItemTitle">{item.prod_name}</h4>
 
-                                        <p className="homeItemDesc" >{item.prod_description}</p>
+                                    <p className="homeItemDesc" >{item.prod_description}</p>
 
-                                        <span className="homeItemPrice">{item.prod_price}.00</span>
+                                    <span className="homeItemPrice">{item.prod_price}.00</span>
 
-                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                                state: {productID: item.prod_id, price: item.prod_price, 
-                                    image: item.prod_image, name: item.prod_name} }} 
-                                    className="addbut btn btn-primary" >
+                        <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                            state: {productID: item.prod_id, price: item.prod_price, 
+                                image: item.prod_image, name: item.prod_name} }} 
+                                className="addbut btn btn-primary" >
 
-                                <span className="addspan"  >+</span>
-                            </Link>
+                            <span className="addspan"  >+</span>
+                        </Link>
 
-                        </Card.Body>
-                        </Card>
-                    )}
-                </div>
+                    </Card.Body>
+                    </Card>
+                )}
 
-                <div>
-                {/* handroll Section */}
-                <h3>Temaki/Handroll </h3>
-                    {handroll.map(item =>
-                        <Card key={item.prod_id} style={{width: '100%'}}>                        
-                        <Card.Body>
-                            <div className="container-row">
+                 {/* handroll Section */}
+                <h3 id="handroll">Temaki / Handroll </h3>
+                {handroll.map(item =>
+                    <Card key={item.prod_id}>                        
+                    <Card.Body>
+                        <div className="container-row">
 
-                                <div className="homeImageContainer">
-                                    <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
+                            <div className="homeImageContainer">
+                                <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
 
-                                </div> 
+                            </div> 
 
-                                <div className="homeItemContainer">
-                                    <div>
-                                        <h4 className="homeItemTitle">{item.prod_name}</h4>
+                            <div className="homeItemContainer">
+                                <div>
+                                    <h4 className="homeItemTitle">{item.prod_name}</h4>
 
-                                        <p className="homeItemDesc" >{item.prod_description}</p>
+                                    <p className="homeItemDesc" >{item.prod_description}</p>
 
-                                        <span className="homeItemPrice">{item.prod_price}.00</span>
+                                    <span className="homeItemPrice">{item.prod_price}.00</span>
 
-                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                                state: {productID: item.prod_id, price: item.prod_price, 
-                                    image: item.prod_image, name: item.prod_name} }} 
-                                    className="addbut btn btn-primary" >
+                        <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                            state: {productID: item.prod_id, price: item.prod_price, 
+                                image: item.prod_image, name: item.prod_name} }} 
+                                className="addbut btn btn-primary" >
 
-                                <span className="addspan"  >+</span>
-                            </Link>
+                            <span className="addspan"  >+</span>
+                        </Link>
 
-                        </Card.Body>
-                        </Card>
-                    )}
-                </div>
+                    </Card.Body>
+                    </Card>
+                )}
 
-                <div>
                 {/* Noodles Section */}
-                <h3>Ramen/Noodles </h3>
-                    {noodles.map(item =>
-                        <Card key={item.prod_id} style={{width: '100%'}}>                        
-                        <Card.Body>
-                            <div className="container-row">
+                <h3 id="ramen">Ramen / Noodles </h3>
+                {noodles.map(item =>
+                    <Card key={item.prod_id} >                        
+                    <Card.Body>
+                        <div className="container-row">
 
-                                <div className="homeImageContainer">
-                                    <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
+                            <div className="homeImageContainer">
+                                <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
 
-                                </div> 
+                            </div> 
 
-                                <div className="homeItemContainer">
-                                    <div>
-                                        <h4 className="homeItemTitle">{item.prod_name}</h4>
+                            <div className="homeItemContainer">
+                                <div>
+                                    <h4 className="homeItemTitle">{item.prod_name}</h4>
 
-                                        <p className="homeItemDesc" >{item.prod_description}</p>
+                                    <p className="homeItemDesc" >{item.prod_description}</p>
 
-                                        <span className="homeItemPrice">{item.prod_price}.00</span>
+                                    <span className="homeItemPrice">{item.prod_price}.00</span>
 
-                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                                state: {productID: item.prod_id, price: item.prod_price, 
-                                    image: item.prod_image, name: item.prod_name} }} 
-                                    className="addbut btn btn-primary" >
+                        <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                            state: {productID: item.prod_id, price: item.prod_price, 
+                                image: item.prod_image, name: item.prod_name} }} 
+                                className="addbut btn btn-primary" >
 
-                                <span className="addspan"  >+</span>
-                            </Link>
+                            <span className="addspan"  >+</span>
+                        </Link>
 
-                        </Card.Body>
-                        </Card>
-                    )}
-                </div>
+                    </Card.Body>
+                    </Card>
+                )}
 
                 <div style={{ marginBottom: '55px'}}>
                 {/* Rice Section */}
-                <h3>Don/Rice </h3>
+                <h3 id="rice">Don / Rice </h3>
                     {rice.map(item =>
                     <Card key={item.prod_id} style={{width: '100%'}}>                        
                     <Card.Body>
@@ -232,9 +228,10 @@ class ProductsList extends React.Component {
                     </Card.Body>
                     </Card>
                     )}
-                </div>
+                </div>  
+            
             </div>
-        </div>   
+        </div>
     )} 
 }  
 

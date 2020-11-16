@@ -17,7 +17,6 @@ class ListofProducts extends React.Component {
 
     render() {
         return (
-            <div>
                 <Switch>
                     <Route exact path="/" >
                         <Tables />
@@ -30,7 +29,6 @@ class ListofProducts extends React.Component {
                         <Checkout />
                     </Route>
                 </Switch>
-            </div>
     )};
 }
 
