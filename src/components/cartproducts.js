@@ -104,7 +104,7 @@ class CartProducts extends React.Component{
         console.log(key2)
         this.props.removeProduct(values)
 
-        window.location.reload();
+        document.location.reload();
     }
 
 

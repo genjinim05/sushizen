@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
 import history from './history';
 
-import { fetchProducts, clearCart, postProducts } from '../actions/SimpleActions';
+import { fetchProducts, clearCart, postProducts, removeProduct } from '../actions/SimpleActions';
 
 class Checkout extends React.Component{
     constructor(props) {
@@ -19,7 +19,8 @@ class Checkout extends React.Component{
           total: 0,
           time: new Date().toLocaleString(),
           table: this.props.tableDetails,
-          response: false
+          response: false,
+          kitchen: ''
         }
     }
 
@@ -31,56 +32,35 @@ class Checkout extends React.Component{
             servicetax: servicetax,
             total: total
         })
-        console.log(this.props.total)
-        console.log(this.state.time)
-
     }
 
     clear = () => {
         this.props.clearCart();
-        window.location.reload();
+        document.location.reload();
     }
 
     checkoutProducts = () => {
-        let items = this.state.cart.find(item => item.id)
-        let quantity = this.state.cart.find(item => item.quantity)
         let tableNumber = this.state.table.find(item => item.number)
 
-        let checkout = {}     
-        checkout.tableNumber = tableNumber.number;
-        checkout.prodID = items.id;
-        checkout.quantity = quantity.quantity;
-        checkout.instructions = items.instructions;
-        checkout.total = this.props.total;
-        checkout.timePlaced = this.state.time;
+        for (var i = 0; i < this.state.cart.length; i++) {
 
-        console.log(checkout)
+            let id = this.state.cart[i].id
+            let quantity = this.state.cart[i].quantity
+            let instructions = this.state.cart[i].instructions
 
-        // let test = this.state.cart.filter(item => item.quantity != null)
-        // console.log(test)
-        // console.log(test.map(item => item.quantity))
+            let checkout = {}     
+            checkout.tableNumber = tableNumber.number;
+            checkout.prodID = id
+            checkout.quantity = quantity;
+            checkout.instructions = instructions;
+            checkout.total = this.props.total;
+            checkout.timePlaced = this.state.time;
 
-        // var p = {
-        //     "checkout.tableNumber": tableNumber.number,
-        //     "checkout.prodID": items.id,
-        //     "checkout.quantity": test.map(item => item.quantity)
-        // };
-        
-        // for (var key in p) {
-        //     if (p.hasOwnProperty(key)) {
-        //         console.log(key + " -> " + p[key]);
-        //     }
-        // }
+            console.log(checkout)
 
-        // for (var i = 0; i < test.length; i++) {
-        //     let prodID = this.state.cart.filter(item => item.id)
-        //     console.log(prodID)
-        //     let checkout = {}     
-        //     checkout.id = prodID.map(item => item.id)
-        //     console.log(checkout.id.toString())
-        //   }
+            this.props.postProducts(checkout);
+        }
 
-        this.props.postProducts(checkout);
 
         this.setState({
             reponse: true
@@ -187,7 +167,8 @@ const mapStateToProps = state =>{
 const mapDispatchToProps = {
     fetchProducts,
     clearCart,
-    postProducts
+    postProducts,
+    removeProduct
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
