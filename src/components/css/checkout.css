@@ -83,26 +83,26 @@
 .clearAllButton, .clearAllButton:hover, .clearAllButton:active {
     float: right;
     margin-right: 15px;
-    margin-top: 15px;
+    margin-top: 5px;
     display: inline;
     background-color: #ee6352;
     border: #ee6352;
     font-weight: 700;
     font-size: 18px;
-
 }
 
 .cartexit {
     display: inline;
     height: 40px;    
     position: absolute;
-    margin-top: 11px;
+    margin-top: 5px;
     margin-left: 10px;
 }
 
 .checkoutHeaderInnerDiv {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     padding: 0px;
+    line-height: 50px;
 }
 
 .cartItemRemove {

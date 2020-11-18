@@ -1,33 +1,60 @@
 import React from 'react';
-import { Nav, Card } from 'react-bootstrap';
-import { connect } from "react-redux";
+import { Nav } from 'react-bootstrap';
+import Scrollspy from 'react-scrollspy'
 
 
-class SideNav extends React.Component{
+class NavBar extends React.Component{
 
     render() {
-        return (
-            <div className="sideNavDiv">
-                <ul className="sideList">
-                    <li className="sideInnerList">
-                        <a href="#sushi"><p className="sideNavText" >Sushi</p></a>
-                    </li>
-                    <li className="sideInnerList">
-                        <a href="#roll"><p className="sideNavText" >Maki / <br/> Roll</p></a>
-                    </li>
-                    <li className="sideInnerList">
-                        <a href="#handroll"><p className="sideNavText" >Temaki / <br/> Handroll</p></a>
-                    </li>
-                    <li className="sideInnerList">
-                        <a href="#ramen"><p className="sideNavText" >Ramen / <br/> Noodles</p></a>
-                    </li>
-                    <li className="sideInnerList">
-                        <a href="#rice"><p className="sideNavText" >Don / <br/> Rice</p></a>
-                    </li>
-                </ul>
-        </div>
+        return ( 
+            <div className="container-fluid">
+                <Nav justify variant="tabs" defaultActiveKey="/products" style={{fontSize: '15px'}}>
+                        <Nav.Link href="#sushi" className="focus">
+                            Sushi
+                        </Nav.Link>
+                        <Nav.Link href="#maki">
+                            Maki
+                        </Nav.Link>
+                        <Nav.Link href="#temaki">
+                            Temaki
+                        </Nav.Link>
+                        <Nav.Link href="#ramen">
+                            Ramen
+                        </Nav.Link>
+                        <Nav.Link href="#don" style={{borderRight: 'none'}}>
+                            Don
+                        </Nav.Link>
+                </Nav>
+            </div>
+   
         )
     }
 }
 
-export default SideNav;
+export default NavBar;
+
+{/* <Scrollspy 
+className="scrollspy" items={ ['sushi','maki','temaki','ramen','don']}
+currentClassName="isCurrent">
+
+<a href="#sushi" defaultChecked>
+    <span>Sushi</span>
+</a>
+
+<a href="#maki">
+    <span>Maki</span>
+</a>
+
+<a href="#temaki">
+    <span>Temaki</span>
+</a>
+
+<a href="#ramen">
+    <span>Ramen</span>
+</a>
+
+<a href="#don">
+    <span>Don</span>
+</a>
+
+</Scrollspy> */}

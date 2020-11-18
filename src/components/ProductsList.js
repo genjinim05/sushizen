@@ -1,8 +1,7 @@
 import React from 'react';
-import SideNav from './sideNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Card, Nav } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { fetchProducts } from '../actions/SimpleActions';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
@@ -22,7 +21,6 @@ class ProductsList extends React.Component {
 
     componentDidMount() {
         this.props.fetchProducts();
-        // localStorage.clear('table');
     }
 
     render() {
@@ -43,196 +41,209 @@ class ProductsList extends React.Component {
 
         return (
         
-        <div className="container-row">
+            <div className="productsDiv" >
+        {/* ------------------------------------Sushi Section-------------------------------------------------------------*/}
+                <Card >
+                <h4 className="typeTitle"><span id="sushi"></span>Sushi </h4>
 
-            <SideNav />
-                        
-            <div className="productsDiv">
-                {/* Sushi Section */}
-                <h4 id="sushi" className="typeTitle">Sushi </h4>
                 {sushi.map(item =>
-                    <Card key={item.prod_id} >                        
-                    <Card.Body>
-                        <div className="container-row">
+                
+                <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                            state: {productID: item.prod_id, price: item.prod_price, 
+                                image: item.prod_image, name: item.prod_name} }} 
+                            key={item.prod_id}>
+
+                    <ol>
+                        <li >
+                            <div className="container-row">
 
                             <div className="homeImageContainer">
                                 <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
-
                             </div> 
 
                             <div className="homeItemContainer">
                                 <div>
-                                    <h5 className="homeItemTitle">{item.prod_name}</h5>
-
-                                    <p className="homeItemDesc" >{item.prod_description}</p>
+                                    <span className="homeItemTitle">{item.prod_name}</span>
 
                                     <span className="homeItemPrice">{item.prod_price}.00</span>
 
+                                    <p className="homeItemDesc" >{item.prod_description}</p>
+
                                 </div>
                             </div>
-                        </div>
+                            </div>
+                            <hr />
+                        </li>
+                    </ol>
+                </Link>
 
-                        <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                            state: {productID: item.prod_id, price: item.prod_price, 
-                                image: item.prod_image, name: item.prod_name} }} 
-                                className="addbut btn btn-primary" >
-
-                            <span className="addspan"  >+</span>
-                        </Link>
-
-                    </Card.Body>
-                    </Card>
                 )}
+                </Card>
 
-                {/* Roll Section */}
-                <h3 id="roll">Maki / Roll </h3>
+        {/* ------------------------------------Roll Section-------------------------------------------------------------*/}
+
+                <Card className="cardDiv" >
+                <h4 className="typeTitle"><span id="maki"></span>Maki / Roll </h4>
+
                 {roll.map(item =>
-                    <Card key={item.prod_id}>                        
-                    <Card.Body>
-                        <div className="container-row">
+                
+                <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                            state: {productID: item.prod_id, price: item.prod_price, 
+                                image: item.prod_image, name: item.prod_name} }} 
+                            key={item.prod_id}>
+
+                    <ol>
+                        <li >
+                            <div className="container-row">
 
                             <div className="homeImageContainer">
                                 <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
-
                             </div> 
 
                             <div className="homeItemContainer">
                                 <div>
-                                    <h4 className="homeItemTitle">{item.prod_name}</h4>
-
-                                    <p className="homeItemDesc" >{item.prod_description}</p>
+                                    <span className="homeItemTitle">{item.prod_name}</span>
 
                                     <span className="homeItemPrice">{item.prod_price}.00</span>
 
+                                    <p className="homeItemDesc" >{item.prod_description}</p>
+
                                 </div>
                             </div>
-                        </div>
+                            </div>
+                            <hr />
+                        </li>
+                    </ol>
+                </Link>
 
-                        <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                            state: {productID: item.prod_id, price: item.prod_price, 
-                                image: item.prod_image, name: item.prod_name} }} 
-                                className="addbut btn btn-primary" >
-
-                            <span className="addspan"  >+</span>
-                        </Link>
-
-                    </Card.Body>
-                    </Card>
                 )}
+                </Card>
 
-                 {/* handroll Section */}
-                <h3 id="handroll">Temaki / Handroll </h3>
+        {/* ------------------------------------Handroll Section-------------------------------------------------------------*/}
+
+
+                <Card className="cardDiv">
+                <h4 className="typeTitle"><span id="temaki"></span>Temaki / HandRoll </h4>
+
                 {handroll.map(item =>
-                    <Card key={item.prod_id}>                        
-                    <Card.Body>
-                        <div className="container-row">
+                    
+                    <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                                state: {productID: item.prod_id, price: item.prod_price, 
+                                    image: item.prod_image, name: item.prod_name} }} 
+                                key={item.prod_id}>
 
-                            <div className="homeImageContainer">
-                                <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
+                        <ol>
+                            <li >
+                                <div className="container-row">
 
-                            </div> 
+                                <div className="homeImageContainer">
+                                    <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
+                                </div> 
 
-                            <div className="homeItemContainer">
-                                <div>
-                                    <h4 className="homeItemTitle">{item.prod_name}</h4>
+                                <div className="homeItemContainer">
+                                    <div>
+                                        <span className="homeItemTitle">{item.prod_name}</span>
 
-                                    <p className="homeItemDesc" >{item.prod_description}</p>
+                                        <span className="homeItemPrice">{item.prod_price}.00</span>
 
-                                    <span className="homeItemPrice">{item.prod_price}.00</span>
+                                        <p className="homeItemDesc" >{item.prod_description}</p>
 
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                                </div>
+                                <hr />
+                            </li>
+                        </ol>
+                    </Link>
 
-                        <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                            state: {productID: item.prod_id, price: item.prod_price, 
-                                image: item.prod_image, name: item.prod_name} }} 
-                                className="addbut btn btn-primary" >
-
-                            <span className="addspan"  >+</span>
-                        </Link>
-
-                    </Card.Body>
-                    </Card>
                 )}
+                </Card>
 
-                {/* Noodles Section */}
-                <h3 id="ramen">Ramen / Noodles </h3>
+        {/* ------------------------------------Noodles Section-------------------------------------------------------------*/}
+
+                <Card className="cardDiv">
+                <h4 className="typeTitle"><span id="ramen"></span>Ramen / Noodles </h4>
+
                 {noodles.map(item =>
-                    <Card key={item.prod_id} >                        
-                    <Card.Body>
-                        <div className="container-row">
-
-                            <div className="homeImageContainer">
-                                <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
-
-                            </div> 
-
-                            <div className="homeItemContainer">
-                                <div>
-                                    <h4 className="homeItemTitle">{item.prod_name}</h4>
-
-                                    <p className="homeItemDesc" >{item.prod_description}</p>
-
-                                    <span className="homeItemPrice">{item.prod_price}.00</span>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                
+                    <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
                             state: {productID: item.prod_id, price: item.prod_price, 
                                 image: item.prod_image, name: item.prod_name} }} 
-                                className="addbut btn btn-primary" >
+                            key={item.prod_id}>
 
-                            <span className="addspan"  >+</span>
-                        </Link>
+                        <ol>
+                            <li >
+                                <div className="container-row">
 
-                    </Card.Body>
-                    </Card>
+                                <div className="homeImageContainer">
+                                    <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
+                                </div> 
+
+                                <div className="homeItemContainer">
+                                    <div>
+                                        <span className="homeItemTitle">{item.prod_name}</span>
+
+                                        <span className="homeItemPrice">{item.prod_price}.00</span>
+
+                                        <p className="homeItemDesc" >{item.prod_description}</p>
+
+                                    </div>
+                                </div>
+                                </div>
+                                <hr />
+                            </li>
+                        </ol>
+                    </Link>
+
                 )}
+                </Card>
 
+               
+
+        {/* ------------------------------------Rice Section-------------------------------------------------------------*/}
+                
                 <div style={{ marginBottom: '55px'}}>
-                {/* Rice Section */}
-                <h3 id="rice">Don / Rice </h3>
-                    {rice.map(item =>
-                    <Card key={item.prod_id} style={{width: '100%'}}>                        
-                    <Card.Body>
-                        <div className="container-row">
+
+                <Card className="cardDiv" >
+                <h4 className="typeTitle"><span id="don"></span>Don / Rice </h4>
+
+                {rice.map(item =>
+                
+                <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
+                            state: {productID: item.prod_id, price: item.prod_price, 
+                                image: item.prod_image, name: item.prod_name} }} 
+                            key={item.prod_id}>
+
+                    <ol>
+                        <li >
+                            <div className="container-row">
 
                             <div className="homeImageContainer">
                                 <img alt={item.prod_ame} src={item.prod_image} className="homeimg"/>
-
                             </div> 
 
                             <div className="homeItemContainer">
                                 <div>
-                                    <h4 className="homeItemTitle">{item.prod_name}</h4>
-
-                                    <p className="homeItemDesc" >{item.prod_description}</p>
+                                    <span className="homeItemTitle">{item.prod_name}</span>
 
                                     <span className="homeItemPrice">{item.prod_price}.00</span>
 
+                                    <p className="homeItemDesc" >{item.prod_description}</p>
+
                                 </div>
                             </div>
-                        </div>
+                            </div>
+                            <hr />
+                        </li>
+                    </ol>
+                </Link>
 
-                        <Link to={{pathname: '/cart', search: '?id=' + item.prod_id.toString(), 
-                            state: {productID: item.prod_id, price: item.prod_price, 
-                                image: item.prod_image, name: item.prod_name} }} 
-                                className="addbut btn btn-primary" >
-
-                            <span className="addspan"  >+</span>
-                        </Link>
-
-                    </Card.Body>
-                    </Card>
-                    )}
-                </div>  
-            
+                )}
+                </Card>
+                </div>                
             </div>
-        </div>
-    )} 
+        )
+    } 
 }  
 
 

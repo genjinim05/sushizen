@@ -42,7 +42,10 @@ class Tables extends React.Component {
     }
 
     componentDidMount() {
-        localStorage.clear();
+        if(this.props.tableDetails !== null) {
+            localStorage.clear();
+
+        }
 
         console.log(this.props.tableDetails)
     }

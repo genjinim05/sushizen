@@ -5,7 +5,8 @@ import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import SideNav from './sideNav';
+import NavBar from './sideNav';
+import { Card } from 'react-bootstrap';
 
  class App extends React.Component {
   constructor(props) {
@@ -25,17 +26,31 @@ import SideNav from './sideNav';
     render() {
       let tableNumber = this.state.table.find(item => item.number)
       return (
-      <div className="orderingHome">
+      <div className="">
 
-        <header className="header" >
+        <header className="sticky-top" >
+          <Card className="headerDiv">
+            <Card.Body className="headerInnerDiv">
               <img src="" alt="Logo"></img>
               <p className="restaurantName">Sushi Zen</p>
-              <span className="tablenumber" >Table: {tableNumber.number} </span>
+              <span className="tablenumber" >Table {tableNumber.number} </span>
+            </Card.Body>
+          </Card>
+          
+          <Card className="navDiv">
+            <Card.Body className="navInnerDiv">
+              <NavBar />
+            </Card.Body>
+          </Card>
+
         </header>
         
-        <div className="orderContainer" >
-  
-          <ProductsList />
+        <div className="row no-gutters justify-content-center">
+          <div className="col-sm-9">
+
+            <ProductsList />
+
+          </div>
         </div>
 
         <footer className="footer">

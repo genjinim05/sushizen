@@ -74,16 +74,16 @@ class Checkout extends React.Component{
         return (      
             <div>
                 <header className="sticky-top">
-                        <Card>
-                            <Card.Body className="checkoutHeaderInnerDiv">
+                    <Card>
+                        <Card.Body className="checkoutHeaderInnerDiv">
                             <Link to='/products'>
-                            <img src="https://sushi-zen.azurewebsites.net/Images/Icons/x-circle.png" alt="exit" className="cartexit"></img>
-                        </Link>
+                                <img src="https://sushi-zen.azurewebsites.net/Images/Icons/x-circle.png" alt="exit" className="cartexit"></img>
+                            </Link>
 
-                        <Button className="clearAllButton" onClick={this.clear}>Clear All</Button>
+                            <Button className="clearAllButton" onClick={this.clear}>Clear All</Button>
 
-                            </Card.Body>
-                        </Card>
+                        </Card.Body>
+                    </Card>
                        
                 </header>
 

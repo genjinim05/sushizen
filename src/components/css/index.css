@@ -21,18 +21,38 @@
 .restaurantName {
     font-size: 25px;
     display: inline;
+    font-weight: 500;
 }
 
-.header {
+.headerDiv {
+    border-bottom: none;
+}
+
+.headerInnerDiv {
     top: 0;
     margin: 0;
     position: sticky;
     width: 100%;
+    /* border-bottom-width: 1px; 
+    border-bottom-style: solid;
+    border-bottom-color: black; */
+    line-height: 40px;
+    z-index: 50;
+    padding: 0px;
+}
+
+.navDiv {
+    border-bottom: none;
+    border-top: none;
+}
+
+.navInnerDiv {
+    padding: 0px;
+    line-height: 30px;
+    top: 40;
     border-bottom-width: 1px; 
     border-bottom-style: solid;
     border-bottom-color: black;
-    line-height: 50px;
-    z-index: 50;
 }
 
 .orderingHome {
@@ -91,11 +111,12 @@
 .homeimg {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .homeImageContainer {
-    width: 80px;
-    height: 60px;
+    width: 150px;
+    height: 100px;
     min-width: 80px;
     overflow: hidden;
 }
@@ -103,31 +124,35 @@
 .container-row {
     display: flex;
     flex-direction: row;
+    margin-left: 15px;
 }
 
-.homeItemsContainer {
-    display: inline;
-    margin-left: 15px;
-    
+.homeItemContainer {
+    margin-left: 15px;  
+    width: 100%;
 }
 
 .homeItemTitle {
     margin-bottom: 10px;
     display: inline;
-    font-size: 25px;    
+    font-size: 20px; 
+    font-weight: 500;   
     margin-left: 10px;
+    color: black;
 }
 
 .homeItemPrice {
-    color: #8d90a1;
+    color: black;
+    font-weight: 700;
     font-size: 20px;
     margin-bottom: 10px;
-    margin-left: 10px;
+    float: right;
+    margin-right: 15px;
 }
 
 .homeItemDesc {
     color: #8d90a1;
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 5px;
     margin-left: 10px;
 }
@@ -177,44 +202,24 @@
     position: center;
 }
 
-.sideList {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sideInnerList {
-    border-bottom: 1px solid #dededf;
-}
-
-.sideNavText {
-    font-size: 18px;
-    text-align: center;
-    margin-top: 10px;
-    color: #707070;
-}
-
 .typeTitle {
-    margin-left: 5px;
+    margin-left: 15px;
+    position: relative;
+    color: #74788c;
+}
+
+.typeTitle span {
+    position: absolute;
+    top: -98px;
 }
 
 .productsDiv {
-    width: 75%;
+    width: 100%;
     top: 50px;
-    overflow: hidden;
+    overflow-y: hidden;
     height: 100%;
     position: sticky;
-    box-sizing: content-box;
-}
-
-.sideNavDiv {
-    width: 25%;
-    position: -webkit-sticky;
-    position: sticky;
-    height: 100%;
-    left: 0;
-    top: 0;
-    overflow: hidden;
+    background-color: #f7f7f7;
 }
 
 .orderContainer {
@@ -227,4 +232,50 @@
     display: none;
     width: 0;
     height: 0;
+}
+
+.nav-justified .nav-item, .nav-justified>.nav-link {
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 15px;
+    border-radius: 1px;
+    font-weight: 600;
+    color: #8d90a1;
+
+    /* border-right-width: 1px; 
+    border-right-style: solid;
+    border-right-color: black; */
+
+}
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: white;
+    background-color: #52a5ff;
+    border-color: #52a5ff #52a5ff #52a5ff;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 5px;
+    height: 48px;
+    font-weight: 800;
+}
+
+ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+card {
+    width: 100%;
+}
+
+hr {
+    width: 93%
+}
+.cardDiv {
+    margin-top: 10px;
 }
