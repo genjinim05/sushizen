@@ -35,9 +35,10 @@ import QRCode from 'qrcode.react';
   componentDidMount() {
     console.log(this.state.cart)
     console.log(this.state.table)
-    let authResult = new URLSearchParams(window.location.search); 
+    let authResult = new URLSearchParams(this.props.location.search); 
     let code = authResult.get('code')
-    console.log(code)
+    console.log(code) 
+    console.log(this.props.location.query)
   }
 
     render() {
