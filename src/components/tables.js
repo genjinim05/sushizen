@@ -42,12 +42,15 @@ class Tables extends React.Component {
     }
 
     componentDidMount() {
-        if(this.props.tableDetails !== null) {
+        this.tableDetails();
+    }
+
+    tableDetails = () => {
+        if(this.props.tableDetails.length > 0) {
             localStorage.clear();
-
-        }
-
-        console.log(this.props.tableDetails)
+            document.location.reload();
+        }       
+         console.log(this.props.tableDetails)
     }
 
     render() {
@@ -57,11 +60,12 @@ class Tables extends React.Component {
             <div className="col-sm-9 p-3">
                 <Table className="tableSelect">
 
-                    <p className="tableChoice">Please Select A Table</p>
+                    <span className="tableChoice">Please Select A Table</span>
                     
                     <tbody>
                         {this.state.table.map(data =>     
-                            <Button className="selectTableButton" onClick={(e) => this.setSelectedTable(e)} value={data} >  
+                            <Button className="selectTableButton" onClick={(e) => this.setSelectedTable(e)} value={data} 
+                                key={data}>  
                                 <div>
                                     <span className="tableSpan"> Table</span>
                                 </div>

@@ -50,6 +50,7 @@
     height: 200px;
     display: inline;
     float: right;
+    /* object-fit: cover; */
 }
 
 .cartexit {
