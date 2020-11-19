@@ -279,3 +279,8 @@ hr {
 .cardDiv {
     margin-top: 10px;
 }
+
+.nav-items {
+    overflow: auto;
+    white-space: nowrap;
+}

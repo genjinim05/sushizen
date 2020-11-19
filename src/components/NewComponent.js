@@ -6,7 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import NavBar from './sideNav';
-import { Card } from 'react-bootstrap';
+import { Card, Button  } from 'react-bootstrap';
+import QRCode from 'qrcode.react';
 
  class App extends React.Component {
   constructor(props) {
@@ -14,17 +15,33 @@ import { Card } from 'react-bootstrap';
       this.state = {
       data: [],
       cart: this.props.cartItems,
-      table: this.props.tableDetails
+      // table: this.props.tableDetails
     }
   }
+
+  downloadQR = () => {
+    const canvas = document.getElementById("G1");
+    const pngUrl = canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    let downloadLink = document.createElement("a");
+    downloadLink.href = pngUrl;
+    downloadLink.download = "g1.png";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
 
   componentDidMount() {
     console.log(this.state.cart)
     console.log(this.state.table)
+    let authResult = new URLSearchParams(window.location.search); 
+    let code = authResult.get('code')
+    console.log(code)
   }
 
     render() {
-      let tableNumber = this.state.table.find(item => item.number)
+      // let tableNumber = this.state.table.find(item => item.number)
       return (
       <div className="">
 
@@ -33,7 +50,7 @@ import { Card } from 'react-bootstrap';
             <Card.Body className="headerInnerDiv">
               <img src="" alt="Logo"></img>
               <p className="restaurantName">Sushi Zen</p>
-              <span className="tablenumber" >Table {tableNumber.number} </span>
+              {/* <span className="tablenumber" >Table {tableNumber.number} </span> */}
             </Card.Body>
           </Card>
           
@@ -42,9 +59,20 @@ import { Card } from 'react-bootstrap';
               <NavBar />
             </Card.Body>
           </Card>
-
         </header>
         
+        <div>
+          <QRCode 
+            id="G1"
+            value="https://sushizen.netlify.app/products"
+            size={290}
+            level={"H"}
+            includeMargin={true}
+          />
+          <a onClick={this.downloadQR}> Download QR </a>
+
+        </div>
+
         <div className="row no-gutters justify-content-center">
           <div className="col-sm-9">
 
