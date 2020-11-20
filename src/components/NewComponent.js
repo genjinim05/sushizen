@@ -23,7 +23,17 @@ import { setSelectedTable } from '../actions/SimpleActions';
   componentDidMount() {
     this.tableNumber();
     console.log(this.props.tableDetails )
+    console.log(this.props.checkoutItems)
+    console.log(this.props.cartItems)
   }
+
+  // checkCart = () => {
+  //   if(this.props.tableDetails.length > 0) {
+  //       localStorage.clear();
+  //       document.location.reload();
+  //   }       
+  //    console.log(this.props.tableDetails)
+  // }
 
   tableNumber = () => {
     if (this.props.tableDetails.length == 0) {
@@ -43,6 +53,7 @@ import { setSelectedTable } from '../actions/SimpleActions';
       this.setState({
         table: tableNumber.number
       }) 
+
     }
     else if (this.props.tableDetails.length > 0 ) {
       let tableNumber = this.props.tableDetails.find(item => item.number)
@@ -50,10 +61,34 @@ import { setSelectedTable } from '../actions/SimpleActions';
       this.setState({
         table: tableNumber.number
       }) 
+
     }
   }
 
     render() {
+    let basket =  <div style={{position:'center'}}>
+                    <Link className="basketButton btn btn-primary" to='/checkout'>
+                      <img src="https://sushi-zen.azurewebsites.net/Images/Icons/basket.png" alt="Cart Icon" className="cartbasket"></img>
+                      <span  className="basketspan">View Basket &nbsp; - &nbsp; {this.state.cart.length} Dishes </span>
+                    </Link>
+                  </div>
+    let added =       
+                <div style={{position:'center'}}  className="container-row"> 
+                  <div className="" style={{width: '40%'}}>
+                    <Link className="" to='/checkout'>
+                      <img src="https://sushi-zen.azurewebsites.net/Images/Icons/white-basket.png" alt="Cart Icon" className="cartbasket1"></img>
+                      <span  className="basketspan1">View Basket  </span>
+                    </Link>
+                  </div>
+
+                  <div className="" style={{width: '60%'}}>
+                    <Link className="paymentButton btn btn-primary" to='/checkout'>
+                      <img src="https://sushi-zen.azurewebsites.net/Images/Icons/basket.png" alt="Cart Icon" className="cartbasket"></img>
+                      <span  className="basketspan">View Basket &nbsp; - &nbsp; {this.state.cart.length} Dishes </span>
+                    </Link>
+                    </div>
+                </div>
+
       return (
       <div className="">
 
@@ -63,14 +98,16 @@ import { setSelectedTable } from '../actions/SimpleActions';
               <img src="" alt="Logo"></img>
               <p className="restaurantName">Sushi Zen</p>
               <span className="tablenumber" >Table {this.state.table} </span>
+              
+              <NavBar />
+
             </Card.Body>
           </Card>
           
-          <Card className="navDiv">
+          {/* <Card className="navDiv">
             <Card.Body className="navInnerDiv">
-              <NavBar />
             </Card.Body>
-          </Card>
+          </Card> */}
         </header>
 
         <div className="row no-gutters justify-content-center">
@@ -83,10 +120,10 @@ import { setSelectedTable } from '../actions/SimpleActions';
 
         <footer className="footer">
           <div style={{position:'center'}}>
-              <Link className="basketButton btn btn-primary" to='/checkout'>
-                <img src="https://sushi-zen.azurewebsites.net/Images/Icons/basket.png" alt="Cart Icon" className="cartbasket"></img>
-                <span  className="basketspan">View Basket &nbsp; - &nbsp; {this.state.cart.length} Dishes </span>
-              </Link>
+            <Link className="basketButton btn btn-primary" to='/checkout'>
+              <img src="https://sushi-zen.azurewebsites.net/Images/Icons/basket.png" alt="Cart Icon" className="cartbasket"></img>
+              <span  className="basketspan">View Basket &nbsp; - &nbsp; {this.state.cart.length} Dishes </span>
+            </Link>
           </div>
         </footer>
 
@@ -100,14 +137,17 @@ import { setSelectedTable } from '../actions/SimpleActions';
 const mapStateToProps = state => {
   const cartItems = state.productsReducer.cartItems;
   const tableDetails = state.productsReducer.tableDetails;
+  const checkoutItems = state.productsReducer.checkoutItems;
+
   return {
       cartItems,
       tableDetails,
+      checkoutItems
   }
 };  
 
 const mapDispatchToProps = {
-  setSelectedTable,
+    setSelectedTable,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

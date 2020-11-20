@@ -140,3 +140,23 @@ export const postProductsFailure = error => ({
     payload: { error }
 })
 
+export const ADD_TO_CHECKOUT = 'ADD_TO_CHECKOUT'
+
+export const addToCheckout = data => ({
+    type: ADD_TO_CHECKOUT,
+    payload: { data }
+});
+
+const Storage1 = (checkoutItems) => {
+    localStorage.setItem('checkout', JSON.stringify(checkoutItems.length > 0 ? checkoutItems: []));
+}
+
+export const sumCheckouts = checkoutItems => {
+    Storage1(checkoutItems);
+    let itemCount1 = checkoutItems.reduce((total, product) => total + product.quantity, 0);
+    let sub1 = checkoutItems.reduce((total,product) => total + product.price * product.quantity, 0)
+    let subtotal1 = parseFloat((sub1).toFixed(2), 10)
+    let servicetax1 = parseFloat((subtotal1 * 0.06).toFixed(2), 10)
+    let total1 = (subtotal1 + servicetax1)
+    return {itemCount1, subtotal1, servicetax1, total1}
+}

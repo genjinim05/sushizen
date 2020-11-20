@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
 import history from './history';
 
-import { fetchProducts, clearCart, postProducts, removeProduct } from '../actions/SimpleActions';
+import { fetchProducts, clearCart, postProducts, removeProduct, addToCheckout } from '../actions/SimpleActions';
 
 class Checkout extends React.Component{
     constructor(props) {
@@ -20,7 +20,7 @@ class Checkout extends React.Component{
           time: new Date().toLocaleString(),
           table: this.props.tableDetails,
           response: false,
-          kitchen: ''
+          kitchen: '',
         }
     }
 
@@ -47,27 +47,29 @@ class Checkout extends React.Component{
             let id = this.state.cart[i].id
             let quantity = this.state.cart[i].quantity
             let instructions = this.state.cart[i].instructions
+            let unitprice = this.state.cart[i].unitprice
 
             let checkout = {}     
             checkout.tableNumber = tableNumber.number;
             checkout.prodID = id
-            checkout.quantity = quantity;
             checkout.instructions = instructions;
+            checkout.quantity = quantity;
+            checkout.unitprice = unitprice;
             checkout.total = this.props.total;
             checkout.timePlaced = this.state.time;
 
             console.log(checkout)
 
             this.props.postProducts(checkout);
+
+            localStorage.removeItem('cart')
+
+            this.props.addToCheckout(checkout);
+
+            history.push({
+             pathname: '/products',
+            });
         }
-
-
-        this.setState({
-            reponse: true
-        })
-        history.push({
-            pathname: '/products',
-        });
     }
 
     render(){
@@ -126,8 +128,6 @@ class Checkout extends React.Component{
                                     <span className="totalCount">RM {this.props.total} </span>
                                 </div>
 
-                                {/* {this.state.response ? alert(this.props.response) : this.state.response} */}
-
                                 <footer className="checkoutFooter">
                                     <div> 
                                         <Button className="checkoutBut" onClick={this.checkoutProducts} >  
@@ -168,7 +168,8 @@ const mapDispatchToProps = {
     fetchProducts,
     clearCart,
     postProducts,
-    removeProduct
+    removeProduct,
+    addToCheckout
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)

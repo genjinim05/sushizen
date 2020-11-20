@@ -12,12 +12,16 @@ import {
     sumNumber,
     POSTPRODUCTS_BEGIN,
     POSTPRODUCTS_SUCCESS,
-    POSTPRODUCTS_FAILURE
+    POSTPRODUCTS_FAILURE,
+    ADD_TO_CHECKOUT,
+    sumCheckouts
 } from '../actions/SimpleActions';
 
 const storage = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
 
 const tableNumber = localStorage.getItem('table') ? JSON.parse(localStorage.getItem('table')) : []
+
+const checkout = localStorage.getItem('checkout') ? JSON.parse(localStorage.getItem('checkout')) : []
 
 const initialState = {
     error: null,
@@ -26,7 +30,8 @@ const initialState = {
     cartItems: storage,
     ...sumItems(storage),
     tableDetails: tableNumber,
-    ...sumNumber(tableNumber)
+    checkoutItems : checkout,
+    ...sumCheckouts(checkout)
 
 }
 
@@ -155,6 +160,42 @@ const selectData = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 error: action.payload.error
+            }
+        case ADD_TO_CHECKOUT:
+            let checkoutID = action.payload.data.id
+            let checkoutInstructions = action.payload.data.instructions
+
+            if (!state.checkoutItems.find(item => item.id === checkoutID && item.instructions === checkoutInstructions
+                )) {
+                state.checkoutItems.push({
+                    ...action.payload.data
+                })
+                console.log('here1')
+            }
+
+            else if (state.checkoutItems.find(item => item.instructions === checkoutInstructions && item.id === checkoutID
+                    )) {
+
+
+                // state.checkoutItems[state.checkoutItems.findIndex(item => item.id === checkoutID 
+                //     && item.instructions === checkoutInstructions)].quantity++
+ 
+                    state.checkoutItems.push({
+                        ...action.payload.data
+                    })
+                console.log('here2')
+            }
+            // else if ((!state.checkoutItems.find(item => item.id === checkoutID && item.instructions === checkoutInstructions
+            //     ))&& state.checkoutItems.find(item => item.instructions === checkoutInstructions && item.id === checkoutID )) {
+            //     state.checkoutItems.push({
+            //         ...action.payload.data
+            //     })
+            //     console.log('here3')
+            // }
+            return {
+                ...state,
+                ...sumCheckouts(state.checkoutItems),
+                checkoutItems: [...state.checkoutItems]
             }
         default:
             return state;
