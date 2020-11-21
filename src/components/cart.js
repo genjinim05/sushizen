@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import './css/cart.css';
 
-import { Card, Button, ButtonGroup } from 'react-bootstrap';
+import { Card, Button, ButtonGroup, Spinner } from 'react-bootstrap';
 import { fetchProducts, addToCart, increaseProduct  } from '../actions/SimpleActions';
 import { connect } from "react-redux";
-import {  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import history from "./history";
 
 class Contact extends Component {
@@ -108,7 +108,15 @@ class Contact extends Component {
     }
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className="justify-content-center align-items-center">
+                
+        <div className="col-sm-9 justify-content-center">
+            <Spinner animation="border" role="status">
+                <span className="sr-only">Loading...</span>
+            </Spinner>
+            Loading...
+            </div>
+        </div>
     }
     let selected = products.filter(datas => datas.prod_id === this.props.location.state.productID)
     let addbut = 

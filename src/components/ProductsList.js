@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Card } from 'react-bootstrap';
+import { Card, Spinner } from 'react-bootstrap';
 import { fetchProducts } from '../actions/SimpleActions';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
@@ -31,7 +31,15 @@ class ProductsList extends React.Component {
         }
 
         if (loading) {
-            return <div>Loading...</div>;
+            return <div className="justify-content-center align-items-center">
+                
+                <div className="col-sm-9 justify-content-center">
+                    <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+                    Loading...
+                    </div>
+                </div>
         }
         let noodles = products.filter(datas => datas.prod_type === 'Noodles')
         let rice = products.filter(datas => datas.prod_type === 'Rice')

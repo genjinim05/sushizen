@@ -1,11 +1,12 @@
 .checkoutimg {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .cartImageContainer {
-    width: 80px;
-    height: 60px;
+    width: 110px;
+    height: 80px;
     min-width: 80px;
     overflow: hidden;
 }
@@ -118,7 +119,7 @@
 .billing {
     position: sticky;
     width: 100%;
-    bottom: 50px;
+    bottom: 150px;
 }
 
 .billCount {
@@ -126,12 +127,33 @@
     float: right;
     font-size: 20px;
     color: gray;
+    margin-right: 10px;
+    font-weight: 500;
 }
 
 .billingTitle {
     font-size: 20px;
     color: gray;
+    float: left;
+    margin-left: 15px;
+    font-weight: 400;
+}
 
+.billCount1 {
+    display: inline;
+    float: right;
+    font-size: 20px;
+    color: gray;
+    margin-right: 10px;
+    font-weight: 400;
+}
+
+.billingTitle1 {
+    font-size: 20px;
+    color: gray;
+    float: left;
+    margin-left: 15px;
+    font-weight: 400;
 }
 
 .billDiv {
@@ -139,40 +161,147 @@
 }
 
 .totalTitle {
-    font-size: 23px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    float: left;
+    margin-left: 15px;
 }
 
 .totalCount {
     display: inline;
     float: right;
-    font-size: 23px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 10px;
+    color: black
 }
 
 .checkoutFooter {
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 34px;
     width: 100%;
-    height: 75px;
+    height: 100px;
     color: white;
     background-color: #303030;
     text-align: center;
+    z-index: 1;
+}
+
+.checkoutFooter1 {
+    position: fixed;
+    left: 0;
+    bottom: 90px;
+    width: 100%;
+    height: 100px;
+    color: white;
+    background-color: #303030;
+    text-align: center;
+    z-index: 1;
 }
 
 .checkoutBut, .checkoutBut:hover, .checkoutBut:active {
     width: 90%;
     height: 50px;
     position: center;
-    margin-top: 12px;
+    margin-top: 7px;
+    margin-bottom: 15px;
     color: white;
     background-color: #52a5ff;
     border: 1px outset #52a5ff;
     font-weight: bold;
 }
 
+.checkoutBut1, .checkoutBut1:hover, .checkoutBut1:active {
+    width: 90%;
+    height: 50px;
+    position: center;
+    margin-top: 7px;
+    margin-bottom: 15px;
+    color: white;
+    background-color: grey;
+    border: 1px outset grey;
+    font-weight: bold;
+}
+
 .checkoutPrice {
     font-size: 20px;
     text-align: center;
+}
+
+.payItemContainer {
+    width: 100%;
+}
+
+.typeTitle {
+    margin-left: 15px;
+    position: relative;
+    color: #74788c;
+}
+
+.payItemTitle {
+    margin-bottom: 10px;
+    display: inline;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 10px;
+    color: black;
+}
+
+.payItemPrice {
+    font-weight: 700;
+    float: right;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.payItemInst {
+    color: #8d90a1;
+    font-size: 17px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.footerDiv {
+    color: white;
+    background-color: #303030;
+}
+
+.summaryDiv {
+    overflow-y: scroll;
+    height: 550px;
+    margin-bottom: 25px;
+}
+
+.paymentMethod {
+    margin-bottom: 10px;
+}
+
+.paymentMethodSelect {
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+.paymentMethodSelectSpan {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.paymentMethodTitle {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.paymentMethodRadio {
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.paymentMethodRadio:active {
+    background-color: #52a5ff;
 }

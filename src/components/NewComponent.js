@@ -27,13 +27,6 @@ import { setSelectedTable } from '../actions/SimpleActions';
     console.log(this.props.cartItems)
   }
 
-  // checkCart = () => {
-  //   if(this.props.tableDetails.length > 0) {
-  //       localStorage.clear();
-  //       document.location.reload();
-  //   }       
-  //    console.log(this.props.tableDetails)
-  // }
 
   tableNumber = () => {
     if (this.props.tableDetails.length == 0) {
@@ -73,18 +66,17 @@ import { setSelectedTable } from '../actions/SimpleActions';
                     </Link>
                   </div>
     let added =       
-                <div style={{position:'center'}}  className="container-row"> 
-                  <div className="" style={{width: '40%'}}>
-                    <Link className="" to='/checkout'>
+                <div style={{position:'center'}}   > 
+                  <div className="" style={{display:'inline', marginTop:'10px'}} >
+                    <Link className="viewBasketButton btn btn-primary" to='/checkout'>
                       <img src="https://sushi-zen.azurewebsites.net/Images/Icons/white-basket.png" alt="Cart Icon" className="cartbasket1"></img>
-                      <span  className="basketspan1">View Basket  </span>
+                      <span className="basketspan1">Basket  </span>
                     </Link>
                   </div>
 
-                  <div className="" style={{width: '60%'}}>
-                    <Link className="paymentButton btn btn-primary" to='/checkout'>
-                      <img src="https://sushi-zen.azurewebsites.net/Images/Icons/basket.png" alt="Cart Icon" className="cartbasket"></img>
-                      <span  className="basketspan">View Basket &nbsp; - &nbsp; {this.state.cart.length} Dishes </span>
+                  <div className="" style={{display:'inline'}}>
+                    <Link className="paymentButton btn btn-primary" to='/payment'>
+                      <span  className="paymentspan">Pay Now </span>
                     </Link>
                     </div>
                 </div>
@@ -119,12 +111,13 @@ import { setSelectedTable } from '../actions/SimpleActions';
         </div>
 
         <footer className="footer">
-          <div style={{position:'center'}}>
+          {/* <div style={{position:'center'}}>
             <Link className="basketButton btn btn-primary" to='/checkout'>
               <img src="https://sushi-zen.azurewebsites.net/Images/Icons/basket.png" alt="Cart Icon" className="cartbasket"></img>
               <span  className="basketspan">View Basket &nbsp; - &nbsp; {this.state.cart.length} Dishes </span>
             </Link>
-          </div>
+          </div> */}
+          { this.props.checkoutItems.length > 0 ? added : basket}
         </footer>
 
       </div>

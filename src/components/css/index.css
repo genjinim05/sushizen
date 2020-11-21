@@ -286,14 +286,47 @@ hr {
 }
 
 .paymentButton {
-    width: 45%;
+    width: 55%;
     height: 50px;
     background-color: #52a5ff;
     border: 1px outset #52a5ff;
     font-weight: 700;
     font-size: 18px;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-right: 15px;
     bottom: 0;
     position: center;
+    float: right;
+}
+
+.viewBasketButton {
+    width: 30%;
+    height: 50px;
+    background-color: #303030;
+    border: none;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-right: 15px;
+    bottom: 0;
+    position: center;
+}
+
+
+.basketspan1 {
+    margin-top: 15px;
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+.cartbasket1 {
+    height: 35px; 
+    width: 35px;   
+    margin-right: 7px;
+    margin-bottom: 0px;
+    color: white;
+}
+
+.paymentspan {
+    font-size: 20px;
 }

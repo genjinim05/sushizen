@@ -164,6 +164,7 @@ const selectData = (state = initialState, action) => {
         case ADD_TO_CHECKOUT:
             let checkoutID = action.payload.data.id
             let checkoutInstructions = action.payload.data.instructions
+            let checkoutQuan = action.payload.data.quantity
 
             if (!state.checkoutItems.find(item => item.id === checkoutID && item.instructions === checkoutInstructions
                 )) {
@@ -174,15 +175,14 @@ const selectData = (state = initialState, action) => {
             }
 
             else if (state.checkoutItems.find(item => item.instructions === checkoutInstructions && item.id === checkoutID
-                    )) {
+                 )) {
 
 
                 // state.checkoutItems[state.checkoutItems.findIndex(item => item.id === checkoutID 
                 //     && item.instructions === checkoutInstructions)].quantity++
- 
-                    state.checkoutItems.push({
-                        ...action.payload.data
-                    })
+                state.checkoutItems.push({
+                    ...action.payload.data,
+                })
                 console.log('here2')
             }
             // else if ((!state.checkoutItems.find(item => item.id === checkoutID && item.instructions === checkoutInstructions
@@ -192,6 +192,7 @@ const selectData = (state = initialState, action) => {
             //     })
             //     console.log('here3')
             // }
+            console.log(state.checkoutItems.filter(item => item.instructions === checkoutInstructions && item.id === checkoutID))
             return {
                 ...state,
                 ...sumCheckouts(state.checkoutItems),

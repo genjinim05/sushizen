@@ -154,7 +154,7 @@ const Storage1 = (checkoutItems) => {
 export const sumCheckouts = checkoutItems => {
     Storage1(checkoutItems);
     let itemCount1 = checkoutItems.reduce((total, product) => total + product.quantity, 0);
-    let sub1 = checkoutItems.reduce((total,product) => total + product.price * product.quantity, 0)
+    let sub1 = checkoutItems.reduce((total,product) => total + product.total * product.quantity, 0)
     let subtotal1 = parseFloat((sub1).toFixed(2), 10)
     let servicetax1 = parseFloat((subtotal1 * 0.06).toFixed(2), 10)
     let total1 = (subtotal1 + servicetax1)

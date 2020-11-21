@@ -32,6 +32,8 @@ class Checkout extends React.Component{
             servicetax: servicetax,
             total: total
         })
+        console.log(this.props.checkoutItems)
+
     }
 
     clear = () => {
@@ -45,17 +47,19 @@ class Checkout extends React.Component{
         for (var i = 0; i < this.state.cart.length; i++) {
 
             let id = this.state.cart[i].id
+            let name = this.state.cart[i].name
             let quantity = this.state.cart[i].quantity
             let instructions = this.state.cart[i].instructions
             let unitprice = this.state.cart[i].unitprice
-
+            let total = (unitprice * quantity)
+            
             let checkout = {}     
             checkout.tableNumber = tableNumber.number;
             checkout.prodID = id
             checkout.instructions = instructions;
             checkout.quantity = quantity;
             checkout.unitprice = unitprice;
-            checkout.total = this.props.total;
+            checkout.total = total;
             checkout.timePlaced = this.state.time;
 
             console.log(checkout)
@@ -64,12 +68,25 @@ class Checkout extends React.Component{
 
             localStorage.removeItem('cart')
 
-            this.props.addToCheckout(checkout);
+            let ordered = {}
+            ordered.tableNumber = tableNumber.number;
+            ordered.prodID = id
+            ordered.name = name
+            ordered.instructions = instructions;
+            ordered.quantity = quantity;
+            ordered.unitprice = unitprice;
+            ordered.total = total;
+            ordered.timePlaced = this.state.time;
 
-            history.push({
-             pathname: '/products',
-            });
+            this.props.addToCheckout(ordered);
         }
+        
+        history.push({
+            pathname: '/products',
+           });
+        
+        document.location.reload();
+
     }
 
     render(){
@@ -105,9 +122,12 @@ class Checkout extends React.Component{
                 {
                     this.state.cart.length > 0 &&
 
-                    <div className="billing">
-                        <Card>
-                            <Card.Body>
+                    <div className="wrapper">
+                  
+
+                        <footer className="checkoutFooter">
+                        <div className="billing">
+                            <Card>
                                 <div className="billDiv">
                                     <span className="billingTitle">Total Items: </span>
                                     <span className="billCount">{this.props.itemCount}</span>
@@ -117,26 +137,14 @@ class Checkout extends React.Component{
                                     <span className="billingTitle">Subtotal: </span>
                                     <span className="billCount">RM {this.props.subtotal}.00</span>
                                 </div>
-
-                                <div className="billDiv">
-                                    <span className="billingTitle">Service Tax (6%): </span>
-                                    <span className="billCount">RM {this.props.servicetax} </span>
-                                </div>
-
-                                <div className="billDiv">
-                                    <span className="totalTitle">Total: </span>
-                                    <span className="totalCount">RM {this.props.total} </span>
-                                </div>
-
-                                <footer className="checkoutFooter">
-                                    <div> 
-                                        <Button className="checkoutBut" onClick={this.checkoutProducts} >  
-                                            <span className="checkoutPrice">Checkout </span>
-                                        </Button> 
-                                    </div>
-                                    </footer>
-                            </Card.Body>
-                        </Card>
+                            </Card>
+                        </div>
+                            <div className="footerDiv"> 
+                                <Button className="checkoutBut" onClick={this.checkoutProducts} >  
+                                    <span className="checkoutPrice">Checkout </span>
+                                </Button> 
+                            </div>
+                        </footer>
                     </div>
                 }
 
@@ -153,6 +161,7 @@ const mapStateToProps = state =>{
     const total = state.productsReducer.total;
     const tableDetails = state.productsReducer.tableDetails;
     const response = state.productsReducer.response;
+    const checkoutItems = state.productsReducer.checkoutItems;
     return{
         cartItems,
         subtotal,
@@ -160,7 +169,8 @@ const mapStateToProps = state =>{
         servicetax,
         total,
         tableDetails,
-        response
+        response,
+        checkoutItems
     }
 }
 

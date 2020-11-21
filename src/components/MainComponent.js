@@ -3,6 +3,7 @@ import App from './NewComponent';
 import Cart from './cart';
 import Checkout from './checkout';
 import Tables from './tables';
+import Payment from './Payment';
 
 import { connect } from 'react-redux';
 import {  Switch, Route } from 'react-router-dom';
@@ -27,6 +28,9 @@ class ListofProducts extends React.Component {
                     </Route>
                     <Route path="/checkout" component={Checkout}>
                         <Checkout />
+                    </Route>
+                    <Route path="/payment" component={Payment}>
+                        <Payment />
                     </Route>
                 </Switch>
     )};

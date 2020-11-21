@@ -111,7 +111,7 @@ class CartProducts extends React.Component{
     render(){
         let items = this.state.cart
         return (
-            <div>
+            <div style={{marginBottom: '70px'}}>
                 {items.map(item => 
                 <div key={item.id}>
                        
