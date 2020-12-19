@@ -2,11 +2,11 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Card, Spinner } from 'react-bootstrap';
-import { fetchProducts } from '../actions/SimpleActions';
+import { fetchProducts } from '../../actions/SimpleActions';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 
-import './css/index.css'
+import '../css/index.css'
 
 class ProductsList extends React.Component {
     constructor(props) {

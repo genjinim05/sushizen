@@ -192,7 +192,7 @@
 .checkoutFooter1 {
     position: fixed;
     left: 0;
-    bottom: 90px;
+    bottom: 110px;
     width: 100%;
     height: 100px;
     color: white;
@@ -205,7 +205,7 @@
     width: 90%;
     height: 50px;
     position: center;
-    margin-top: 7px;
+    margin-top: 10px;
     margin-bottom: 15px;
     color: white;
     background-color: #52a5ff;
@@ -217,7 +217,7 @@
     width: 90%;
     height: 50px;
     position: center;
-    margin-top: 7px;
+    margin-top: 10px;
     margin-bottom: 15px;
     color: white;
     background-color: grey;

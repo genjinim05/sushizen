@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import './css/cart.css';
+import '../css/cart.css';
 
 import { Card, Button, ButtonGroup, Spinner } from 'react-bootstrap';
-import { fetchProducts, addToCart, increaseProduct  } from '../actions/SimpleActions';
+import { fetchProducts, addToCart, increaseProduct  } from '../../actions/SimpleActions';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import history from "./history";
+import history from "../history";
 
 class Contact extends Component {
     constructor(props) {

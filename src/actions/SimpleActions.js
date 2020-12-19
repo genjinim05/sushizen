@@ -2,7 +2,7 @@
 export function fetchProducts() {
     return dispatch => {
         dispatch(fetchProductsBegin());
-        return fetch('https://sushi-zen.azurewebsites.net/api/items')
+        return fetch('http://localhost:55959/api/items')
             .then(handleErrors)
             .then(res => res.json())
             .then(results => {
@@ -12,7 +12,8 @@ export function fetchProducts() {
             .catch(error => dispatch(fetchProductsFailure(error)));
     };
 }
-// http://localhost:60348/api/products/
+// http://localhost:55959/api/items
+// https://sushi-zen.azurewebsites.net/api/items
 
 function handleErrors(response) {
     if (!response.ok) {
@@ -103,7 +104,7 @@ export const sumNumber = tableDetails => {
 export function postProducts(tableNumber) {
     return dispatch => {
         dispatch(postProductsBegin());
-        return fetch('https://sushi-zen.azurewebsites.net/api/checkouts/CHECKOUTS_T', {
+        return fetch('http://localhost:55959/api/checkouts/CHECKOUTS_T', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

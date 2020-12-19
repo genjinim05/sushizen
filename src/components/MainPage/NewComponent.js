@@ -1,13 +1,13 @@
 import React from 'react';
 import ProductsList from './ProductsList';
-import './css/index.css';
+import '../css/index.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import NavBar from './sideNav';
 import { Card } from 'react-bootstrap';
-import { setSelectedTable } from '../actions/SimpleActions';
+import { setSelectedTable } from '../../actions/SimpleActions';
 
  class App extends React.Component {
   constructor(props) {
@@ -61,7 +61,7 @@ import { setSelectedTable } from '../actions/SimpleActions';
     render() {
     let basket =  <div style={{position:'center'}}>
                     <Link className="basketButton btn btn-primary" to='/checkout'>
-                      <img src="https://sushi-zen.azurewebsites.net/Images/Icons/basket.png" alt="Cart Icon" className="cartbasket"></img>
+                      <img src="http://localhost:55959/Images/Icons/basket.png" alt="Cart Icon" className="cartbasket"></img>
                       <span  className="basketspan">View Basket &nbsp; - &nbsp; {this.state.cart.length} Dishes </span>
                     </Link>
                   </div>
@@ -69,7 +69,7 @@ import { setSelectedTable } from '../actions/SimpleActions';
                 <div style={{position:'center'}}   > 
                   <div className="" style={{display:'inline', marginTop:'10px'}} >
                     <Link className="viewBasketButton btn btn-primary" to='/checkout'>
-                      <img src="https://sushi-zen.azurewebsites.net/Images/Icons/white-basket.png" alt="Cart Icon" className="cartbasket1"></img>
+                      <img src="http://localhost:55959/Images/Icons/white-basket.png" alt="Cart Icon" className="cartbasket1"></img>
                       <span className="basketspan1">Basket  </span>
                     </Link>
                   </div>
@@ -87,7 +87,7 @@ import { setSelectedTable } from '../actions/SimpleActions';
         <header className="sticky-top" >
           <Card className="headerDiv">
             <Card.Body className="headerInnerDiv">
-              <img src="" alt="Logo"></img>
+              {/* <img src="https://sushi-zen.azurewebsites.net/Images/Icons/logo.png" alt="Logo"></img> */}
               <p className="restaurantName">Sushi Zen</p>
               <span className="tablenumber" >Table {this.state.table} </span>
               

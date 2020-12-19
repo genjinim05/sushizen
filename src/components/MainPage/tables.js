@@ -2,12 +2,12 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Card, Button, Table } from 'react-bootstrap';
-import { setSelectedTable } from '../actions/SimpleActions';
+import { setSelectedTable } from '../../actions/SimpleActions';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import history from './history';
+import history from '../history';
 
-import './css/index.css'
+import '../css/index.css'
 
 class Tables extends React.Component {
     constructor(props) {
@@ -79,6 +79,13 @@ class Tables extends React.Component {
 
             <footer className="footer">
                 <div style={{position:'center'}}>
+                    
+                    {/* {this.state.tableNum != null
+                    ? 
+                    
+                    :
+                    
+                    } */}
                     <Button className="continueButton" onClick={this.deploySelectedTable}>Continue</Button>
                 </div>
             </footer>   

@@ -1,14 +1,13 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Card, Button, Table } from 'react-bootstrap';
-import { setSelectedTable } from '../actions/SimpleActions';
+import { setSelectedTable } from '../../actions/SimpleActions';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import history from './history';
+import history from '../history';
 
-import './css/index.css'
-import './css/checkout.css'
+import '../css/index.css'
+import '../css/checkout.css'
 
 class Payment extends React.Component {
     constructor(props) {
@@ -53,7 +52,7 @@ class Payment extends React.Component {
                     <Card>
                         <Card.Body className="checkoutHeaderInnerDiv">
                             <Link to='/products'>
-                            <img src="https://sushi-zen.azurewebsites.net/Images/Icons/x-circle.png" alt="exit" className="cartexit"></img>
+                            <img src="http://localhost:55959/Images/Icons/x-circle.png" alt="exit" className="cartexit"></img>
                             </Link>
                             <span className="tablenumber" >Table {this.state.table} </span>
                         </Card.Body>
@@ -68,7 +67,7 @@ class Payment extends React.Component {
                             
                             {items.map(item => 
                             
-                            <div key={item.id}>
+                            <div key={item.timePlaced}>
                             
                             <ol>
                                 <li>

@@ -1,9 +1,9 @@
 import React from 'react';
-import './css/checkout.css'
+import '../css/checkout.css'
 
 import { connect } from 'react-redux';
 import { Button, Card } from 'react-bootstrap'; 
-import { increaseProduct, decreaseProduct, removeProduct } from '../actions/SimpleActions'
+import { increaseProduct, decreaseProduct, removeProduct } from '../../actions/SimpleActions'
 
 class CartProducts extends React.Component{
     constructor(props) {
@@ -146,7 +146,7 @@ class CartProducts extends React.Component{
                         <div className="cartItemImage">
                             <Button className="cartImagePlus" id={item.id} value={item.instructions} 
                                 onClick={(e) => this.increaseProduct(e)}>
-                                <img src="https://sushi-zen.azurewebsites.net/Images/Icons/plus-icon.png" alt="Plus Icon" 
+                                <img src="http://localhost:55959/Images/Icons/plus-icon.png" alt="Plus Icon" 
                                      className="cartItemPlus">    
                                 </img>
                             </Button>
@@ -160,7 +160,7 @@ class CartProducts extends React.Component{
                             <div className="cartItemImage">
                                 <Button className="cartImageMinus" id={item.id} value={item.instructions} 
                                     onClick={(e) => this.decreaseProduct(e)}>
-                                    <img src="https://sushi-zen.azurewebsites.net/Images/Icons/minus-icon.png" alt="Minus Icon" 
+                                    <img src="http://localhost:55959/Images/Icons/minus-icon.png" alt="Minus Icon" 
                                         className="cartItemMinus">    
                                     </img>
                                 </Button>
@@ -172,7 +172,7 @@ class CartProducts extends React.Component{
                             <div className="cartItemImage">
                                 <Button className="cartImageRemove" id={item.id} value={item.instructions} 
                                     onClick={(e) => this.removeProduct(e)}>
-                                    <img src="https://sushi-zen.azurewebsites.net/Images/Icons/trash-icon.png" alt="Remove Icon" 
+                                    <img src="http://localhost:55959/Images/Icons/trash-icon.png" alt="Remove Icon" 
                                         className="cartItemRemove">    
                                     </img>
                                 </Button>

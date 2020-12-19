@@ -1,13 +1,13 @@
 import React from 'react';
 import CartProducts from './cartproducts';
-import './css/checkout.css';
+import '../css/checkout.css';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
-import history from './history';
+import history from '../history';
 
-import { fetchProducts, clearCart, postProducts, removeProduct, addToCheckout } from '../actions/SimpleActions';
+import { fetchProducts, clearCart, postProducts, removeProduct, addToCheckout } from '../../actions/SimpleActions';
 
 class Checkout extends React.Component{
     constructor(props) {
@@ -96,7 +96,7 @@ class Checkout extends React.Component{
                     <Card>
                         <Card.Body className="checkoutHeaderInnerDiv">
                             <Link to='/products'>
-                                <img src="https://sushi-zen.azurewebsites.net/Images/Icons/x-circle.png" alt="exit" className="cartexit"></img>
+                                <img src="http://localhost:55959/Images/Icons/x-circle.png" alt="exit" className="cartexit"></img>
                             </Link>
 
                             <Button className="clearAllButton" onClick={this.clear}>Clear All</Button>

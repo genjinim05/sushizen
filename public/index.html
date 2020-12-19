@@ -55,7 +55,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" 
     integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" 
     crossorigin="anonymous"></script>
-
+    <script>
+      // Check that service workers are registered
+      if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+         window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js',{
+               scope: './'
+            });
+         });
+      } else {
+         console.log('No need to register a new service worker!');
+      }
+   </script>
     
   </body>
 </html>

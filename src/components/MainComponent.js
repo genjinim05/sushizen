@@ -1,9 +1,9 @@
 import React from 'react';
-import App from './NewComponent';
-import Cart from './cart';
-import Checkout from './checkout';
-import Tables from './tables';
-import Payment from './Payment';
+import App from './MainPage/NewComponent';
+import Cart from './MainPage/cart';
+import Checkout from './checkout/checkout';
+import Tables from './MainPage/tables';
+import Payment from './checkout/Payment';
 
 import { connect } from 'react-redux';
 import {  Switch, Route } from 'react-router-dom';
